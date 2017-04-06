@@ -19,8 +19,8 @@
 举例说明：
 `torch.utils.data.DataLoader(coco_cap, batch_size=args.batchSize, shuffle=True, num_workers=args.nThreads)`
 
-在构造函数中，不同的数据集直接的构造函数会有些许不同，但是他们共同拥有 `keyword` 参数。
-In the constructor, each dataset has a slightly different API as needed, but they all take the keyword args:
+在构造函数中，不同的数据集直接的构造函数会有些许不同，但是他们共同拥有一些 `keyword` 参数。
+
 - `transform`： 一个函数，原始图片作为输入，返回一个转换后的图片。（详情请看下面关于`torchvision-tranform`的部分）
 
 - `target_transform` - 一个函数，输入为`target`，输出对其的转换。例子，输入的是图片标注的`string`，输出为`word`的索引。
@@ -63,7 +63,9 @@ u'A plane darts across a bright blue sky behind a mountain covered in snow',
 u'A plane leaves a contrail above the snowy mountain top.',
 u'A mountain that has a plane flying overheard in the distance.',
 u'A mountain view with a plume of smoke in the background']
-Detection:
+```
+目标检测:
+```python
 dset.CocoDetection(root="dir where images are", annFile="json annotation file", [transform, target_transform])
 ```
 ## LSUN
