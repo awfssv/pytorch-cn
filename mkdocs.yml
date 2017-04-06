@@ -1,0 +1,15 @@
+site_name: PyTorch中文文档
+pages:
+- [index.md, 主页]
+- [notes/autograd.md, '说明', '自动求导机制']
+- [notes/cuda.md, '说明', 'CUDA语义']
+- [notes/extending.md, '说明', '扩展PyTorch']
+- [notes/multiprocessing.md, '说明', '多重处理最佳实践']
+- [notes/serialization.md, '说明', '序列化语义']
+- [torchvision/torchvision.md, 'TORCHVISION参考', 'torchvision']
+- [torchvision/torchvision-datasets.md, 'TORCHVISION参考', 'torchvision.datasets']
+- [torchvision/torchvision-models.md, 'TORCHVISION参考', 'torchvision.models']
+- [torchvision/torchvision-transform.md, 'TORCHVISION参考', 'torchvision.transforms']
+- [torchvision/torchvision-utils.md, 'TORCHVISION参考', 'torchvision.utils']
+
+theme: readthedocs
