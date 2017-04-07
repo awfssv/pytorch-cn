@@ -36,7 +36,7 @@ dset.MNIST(root, train=True, transform=None, target_transform=None, download=Fal
 ## COCO
 需要安装[COCO API](https://github.com/pdollar/coco/tree/master/PythonAPI)
 
-关于图像标注:
+### 图像标注:
 ```python
 dset.CocoCaptions(root="dir where images are", annFile="json annotation file", [transform, target_transform])
 ```
@@ -63,7 +63,9 @@ u'A plane darts across a bright blue sky behind a mountain covered in snow',
 u'A plane leaves a contrail above the snowy mountain top.',
 u'A mountain that has a plane flying overheard in the distance.',
 u'A mountain view with a plume of smoke in the background']
-Detection:
+```
+### 检测:
+```
 dset.CocoDetection(root="dir where images are", annFile="json annotation file", [transform, target_transform])
 ```
 ## LSUN
