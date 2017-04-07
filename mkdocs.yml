@@ -6,6 +6,7 @@ pages:
 - [notes/extending.md, '说明', '扩展PyTorch']
 - [notes/multiprocessing.md, '说明', '多重处理最佳实践']
 - [notes/serialization.md, '说明', '序列化语义']
+- [package_references/model_zoo.md, 'PACKAGE参考', 'torch.utils.model_zoo']
 - [torchvision/torchvision.md, 'TORCHVISION参考', 'torchvision']
 - [torchvision/torchvision-datasets.md, 'TORCHVISION参考', 'torchvision.datasets']
 - [torchvision/torchvision-models.md, 'TORCHVISION参考', 'torchvision.models']
