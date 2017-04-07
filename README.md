@@ -11,7 +11,7 @@
 ## 翻译进度
 未勾选的是未完成的，绿色代表已认领正在进行，黑色代表未认领的（大家赶紧认领吧～）
 ### Notes
-- [x]Autograd mechanics (<font color=red>*ycszen*</font>)
+[x]Autograd mechanics (<font color=red>*ycszen*</font>)
 - [x]CUDA semantics (<font color=red>*ycszen*</font>)
 - [ ]<font color=green>Extending PyTorch</font>
 - [ ]Multiprocessing best practices
