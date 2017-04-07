@@ -31,7 +31,7 @@
 - [ ] torch.cuda
 - [ ] torch.utils.ffi
 - [ ] torch.utils.data
-- [ ] torch.utils.model_zoo
+- [x] torch.utils.model_zoo(*ycszen*)
 
 ### torchvision Reference
 - [x] torchvision (*KeithYin*)
