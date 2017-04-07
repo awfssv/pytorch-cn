@@ -11,22 +11,22 @@
 ## 翻译进度
 未勾选的是未完成的，绿色代表已认领正在进行，黑色代表未认领的（大家赶紧认领吧～）
 ### Notes
-- [x] Autograd mechanics (<font color=red>*ycszen*</font>)
-- [x] CUDA semantics (<font color=red>*ycszen*</font>)
-- [ ] <font color=green>Extending PyTorch</font>
+- [x] Autograd mechanics (<font color=#FF0000>*ycszen*</font>)
+- [x] CUDA semantics (<font color=#FF0000>*ycszen*</font>)
+- [ ] <font color=#00FF00>Extending PyTorch</font>
 - [ ] Multiprocessing best practices
-- [x] Serialization semantics (<font color=red>*ycszen*</font>)
+- [x] Serialization semantics (<font color=#FF0000>*ycszen*</font>)
 
 ### Package Reference
-- [ ] <font color=green>torch</font>
+- [ ] <font color=#00FF00>torch</font>
 - [ ] torch.Tensor
 - [ ] torch.Storage
-- [ ] <font color=green>torch.nn</font>
-- [ ] <font color=green>torch.nn.functional</font>
+- [ ] <font color=#00FF00>torch.nn</font>
+- [ ] <font color=#00FF00>torch.nn.functional</font>
 - [ ] torch.nn.init
-- [ ] <font color=green>torch.optim</font>
-- [ ] <font color=green>torch.autograd</font>
-- [ ] <font color=green>torch.multiprocessing</font>
+- [ ] <font color=#00FF00>torch.optim</font>
+- [ ] <font color=#00FF00>torch.autograd</font>
+- [ ] <font color=#00FF00>torch.multiprocessing</font>
 - [ ] torch.legacy
 - [ ] torch.cuda
 - [ ] torch.utils.ffi
@@ -34,8 +34,8 @@
 - [ ] torch.utils.model_zoo
 
 ### torchvision Reference
-- [x] torchvision (<font color=red>*KeithYin*</font>)
-- [x] torchvision.datasets (<font color=red>*KeithYin*</font>)
-- [x] torchvision.models (<font color=red>*KeithYin*</font>)
-- [x] torchvision.transforms (<font color=red>*KeithYin*</font>)
-- [x] torchvision.utils (<font color=red>*KeithYin*</font>)
+- [x] torchvision (<font color=#FF0000>*KeithYin*</font>)
+- [x] torchvision.datasets (<font color=#FF0000>*KeithYin*</font>)
+- [x] torchvision.models (<font color=#FF0000>*KeithYin*</font>)
+- [x] torchvision.transforms (<font color=#FF0000>*KeithYin*</font>)
+- [x] torchvision.utils (<font color=#FF0000>*KeithYin*</font>)
