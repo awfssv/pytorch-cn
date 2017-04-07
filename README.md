@@ -12,30 +12,30 @@
 未勾选的是未完成的，绿色代表已认领正在进行，黑色代表未认领的（大家赶紧认领吧～）
 ### Notes
 - [x] Autograd mechanics (<font color=red>*ycszen*</font>)
-- [x]CUDA semantics (<font color=red>*ycszen*</font>)
-- [ ]<font color=green>Extending PyTorch</font>
-- [ ]Multiprocessing best practices
-- [x]Serialization semantics (<font color=red>*ycszen*</font>)
+- [x] CUDA semantics (<font color=red>*ycszen*</font>)
+- [ ] <font color=green>Extending PyTorch</font>
+- [ ] Multiprocessing best practices
+- [x] Serialization semantics (<font color=red>*ycszen*</font>)
 
 ### Package Reference
-- [ ]<font color=green>torch</font>
-- [ ]torch.Tensor
-- [ ]torch.Storage
-- [ ]<font color=green>torch.nn</font>
-- [ ]<font color=green>torch.nn.functional</font>
-- [ ]torch.nn.init
-- [ ]<font color=green>torch.optim</font>
-- [ ]<font color=green>torch.autograd</font>
-- [ ]<font color=green>torch.multiprocessing</font>
-- [ ]torch.legacy
-- [ ]torch.cuda
-- [ ]torch.utils.ffi
-- [ ]torch.utils.data
-- [ ]torch.utils.model_zoo
+- [ ] <font color=green>torch</font>
+- [ ] torch.Tensor
+- [ ] torch.Storage
+- [ ] <font color=green>torch.nn</font>
+- [ ] <font color=green>torch.nn.functional</font>
+- [ ] torch.nn.init
+- [ ] <font color=green>torch.optim</font>
+- [ ] <font color=green>torch.autograd</font>
+- [ ] <font color=green>torch.multiprocessing</font>
+- [ ] torch.legacy
+- [ ] torch.cuda
+- [ ] torch.utils.ffi
+- [ ] torch.utils.data
+- [ ] torch.utils.model_zoo
 
 ### torchvision Reference
-- [x]torchvision (<font color=red>*KeithYin*</font>)
-- [x]torchvision.datasets (<font color=red>*KeithYin*</font>)
-- [x]torchvision.models (<font color=red>*KeithYin*</font>)
-- [x]torchvision.transforms (<font color=red>*KeithYin*</font>)
-- [x]torchvision.utils (<font color=red>*KeithYin*</font>)
+- [x] torchvision (<font color=red>*KeithYin*</font>)
+- [x] torchvision.datasets (<font color=red>*KeithYin*</font>)
+- [x] torchvision.models (<font color=red>*KeithYin*</font>)
+- [x] torchvision.transforms (<font color=red>*KeithYin*</font>)
+- [x] torchvision.utils (<font color=red>*KeithYin*</font>)
