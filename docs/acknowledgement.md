@@ -10,6 +10,7 @@
 |ycszen|说明|CUDA语义|
 |ycszen|说明|序列化语义|
 |ycszen|package参考|torch.utils.model_zoo|
+|ycszen|package参考|torch.utils.data|
 |KeithYin|torchvision参考|torchvision|
 |KeithYin|torchvision参考|torchvision.datasets|
 |KeithYin|torchvision参考|torchvision.models|

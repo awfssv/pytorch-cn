@@ -10,12 +10,12 @@ torch.utils.model_zoo.load_url(url, model_dir=None)
 
 *model_dir* 的默认值为`$TORCH_HOME/models`，其中`$TORCH_HOME`默认为`~/.torch`。可以使用`$TORCH_MODEL_ZOO`环境变量来覆盖默认目录。
 
-**参数**:
+**参数：**
 
 - url(string) - 要下载对象的URL
 - model_dir(string, optional) - 保存对象的目录
 
-**例子**：
+**例子：**
 ```python
 >>> state_dict = torch.utils.model_zoo.load_url('https://s3.amazonaws.com/pytorch/models/resnet18-5c106cde.pth')
 ```

@@ -30,7 +30,7 @@
 - [ ] torch.legacy
 - [ ] torch.cuda
 - [ ] torch.utils.ffi
-- [ ] torch.utils.data
+- [x] torch.utils.data(*ycszen*)
 - [x] torch.utils.model_zoo(*ycszen*)
 
 ### torchvision Reference
