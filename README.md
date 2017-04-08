@@ -13,7 +13,7 @@
 ### Notes
 - [x] Autograd mechanics (*ycszen*)
 - [x] CUDA semantics (*ycszen*)
-- [ ] **Extending PyTorch**
+- [x] Extending PyTorch(*KeithYin*)
 - [ ] Multiprocessing best practices
 - [x] Serialization semantics (*ycszen*)
 
@@ -25,7 +25,7 @@
 - [ ] **torch.nn.functional**
 - [ ] torch.nn.init
 - [ ] **torch.optim**
-- [ ] **torch.autograd**
+- [x] torch.autograd(*KeithYin*)
 - [ ] **torch.multiprocessing**
 - [ ] torch.legacy
 - [ ] torch.cuda
