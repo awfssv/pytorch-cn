@@ -6,6 +6,8 @@ pages:
 - [notes/extending.md, '说明', '扩展PyTorch']
 - [notes/multiprocessing.md, '说明', '多进程最佳实践']
 - [notes/serialization.md, '说明', '序列化语义']
+- [package_references/legacy.md, 'PACKAGE参考', 'torch.legacy']
+- [package_references/ffi.md, 'PACKAGE参考', 'torch.utils.ffi']
 - [package_references/model_zoo.md, 'PACKAGE参考', 'torch.utils.model_zoo']
 - [package_references/data.md, 'PACKAGE参考', 'torch.utils.data']
 - [torchvision/torchvision.md, 'TORCHVISION参考', 'torchvision']
@@ -13,5 +15,6 @@ pages:
 - [torchvision/torchvision-models.md, 'TORCHVISION参考', 'torchvision.models']
 - [torchvision/torchvision-transform.md, 'TORCHVISION参考', 'torchvision.transforms']
 - [torchvision/torchvision-utils.md, 'TORCHVISION参考', 'torchvision.utils']
+- [acknowledgement.md, '致谢']
 
 theme: readthedocs

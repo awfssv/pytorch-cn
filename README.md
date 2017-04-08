@@ -29,7 +29,7 @@
 - [ ] **torch.multiprocessing**
 - [ ] torch.legacy
 - [ ] torch.cuda
-- [ ] torch.utils.ffi
+- [x] torch.utils.ffi(*ycszen*)
 - [x] torch.utils.data(*ycszen*)
 - [x] torch.utils.model_zoo(*ycszen*)
 
