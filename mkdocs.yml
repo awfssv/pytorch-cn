@@ -14,5 +14,6 @@ pages:
 - [torchvision/torchvision-models.md, 'TORCHVISION参考', 'torchvision.models']
 - [torchvision/torchvision-transform.md, 'TORCHVISION参考', 'torchvision.transforms']
 - [torchvision/torchvision-utils.md, 'TORCHVISION参考', 'torchvision.utils']
+- [acknowledgement.md, '致谢']
 
 theme: readthedocs
