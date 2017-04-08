@@ -12,8 +12,8 @@ torch.utils.model_zoo.load_url(url, model_dir=None)
 
 **参数：**
 
-- url(string) - 要下载对象的URL
-- model_dir(string, optional) - 保存对象的目录
+- **url** (*string*) - 要下载对象的URL
+- **model_dir** (*string*, optional) - 保存对象的目录
 
 **例子：**
 ```python
