@@ -13,8 +13,8 @@
 ### Notes
 - [x] Autograd mechanics (*ycszen*)
 - [x] CUDA semantics (*ycszen*)
-- [ ] **Extending PyTorch**
-- [ ] Multiprocessing best practices
+- [x] Extending PyTorch (*KeithYin*)
+- [x] Multiprocessing best practices (*ycszen*)
 - [x] Serialization semantics (*ycszen*)
 
 ### Package Reference
