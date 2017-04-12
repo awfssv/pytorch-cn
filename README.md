@@ -49,10 +49,10 @@
   - [ ] Vision functions
 - [ ] **torch.nn.init**
 - [ ] **torch.optim**
-- [ ] **torch.autograd**
+- [x] torch.autograd(*KeithYin*)
 - [ ] **torch.multiprocessing**
 - [x] torch.legacy(*ycszen*)
-- [ ] **torch.cuda**
+- [x] torch.cuda(*ycszen*)
 - [x] torch.utils.ffi(*ycszen*)
 - [x] torch.utils.data(*ycszen*)
 - [x] torch.utils.model_zoo(*ycszen*)
