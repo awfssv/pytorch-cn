@@ -8,6 +8,8 @@
 |ycszen|主页||
 |ycszen|说明|自动求导机制|
 |ycszen|说明|CUDA语义|
+|KeithYin|说明|扩展PyTorch|
+|ycszen|说明|多进程最佳实践|
 |ycszen|说明|序列化语义|
 |ycszen|pacakge参考|torch.legacy|
 |ycszen|pacakge参考|torch.utils.ffi|
