@@ -22,6 +22,7 @@ PyTorch是使用GPU和CPU优化的深度学习张量库。
 - [torch.utils.ffi](package_references/ffi.md)
 - [torch.utils.model_zoo](package_references/model_zoo.md)
 - [torch.lutils.data](package_references/data.md)
+- [torch.lutils.Storage](package_references/Storage.md)
 ##torchvision参考
 - [torchvision](torchvision/torchvision.md)
 - [torchvision.datasets](torchvision/torchvision-datasets.md)
