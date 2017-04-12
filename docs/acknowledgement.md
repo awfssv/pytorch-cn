@@ -11,6 +11,8 @@
 |KeithYin|说明|扩展PyTorch|
 |ycszen|说明|多进程最佳实践|
 |ycszen|说明|序列化语义|
+|kophy|package参考|torch.Storage|
+|kophy|package参考|torch.nn.init|
 |KeithYin|package参考|torch.autograd|
 |ycszen|pacakge参考|torch.legacy|
 |ycszen|package参考|torch.cuda|

@@ -2,7 +2,7 @@
 
 ---
 
-本项目由[awfssv](https://github.com/awfssv), [ycszen](https://github.com/ycszen), [KeithYin](https://github.com/KeithYin)等PyTorch爱好者发起，并已获得PyTorch官方授权。我们目的是建立[PyTorch](http://pytorch.org/docs/)的中文文档，并力所能及地提供更多的帮助和建议。
+本项目由[awfssv](https://github.com/awfssv), [ycszen](https://github.com/ycszen), [KeithYin](https://github.com/KeithYin), [kophy](https://github.com/kophy)等PyTorch爱好者发起，并已获得PyTorch官方授权。我们目的是建立[PyTorch](http://pytorch.org/docs/)的中文文档，并力所能及地提供更多的帮助和建议。
 
 本项目网址为[pytorch-cn](http://pytorch-cn.readthedocs.io/zh/latest/)，文档翻译QQ群：628478868
 
@@ -20,7 +20,7 @@
 ### Package Reference
 - [ ] **torch**
 - [ ] **torch.Tensor**
-- [ ] **torch.Storage**
+- [x] torch.Storage(*kophy*)
 - [ ] **torch.nn**
   - [ ] **Parameters**
   - [ ] **Containers**
@@ -38,16 +38,16 @@
   - [ ] **Multi-GPU layers**
   - [ ] **Utilities**
 - [ ] **torch.nn.functional**
-  - [ ] Convolution functions
-  - [ ] Pooling functions
-  - [ ] Non-linear activations functions
+  - [ ] **Convolution functions**
+  - [ ] **Pooling functions**
+  - [ ] **Non-linear activations functions**
   - [ ] Normalization functions
   - [ ] Linear functions
   - [ ] Dropout functions
   - [ ] Distance functions
   - [ ] Loss functions
   - [ ] Vision functions
-- [ ] **torch.nn.init**
+- [x] torch.nn.init(*kophy*)
 - [ ] **torch.optim**
 - [x] torch.autograd(*KeithYin*)
 - [ ] **torch.multiprocessing**
