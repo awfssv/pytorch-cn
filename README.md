@@ -19,16 +19,40 @@
 
 ### Package Reference
 - [ ] **torch**
-- [ ] torch.Tensor
-- [ ] torch.Storage
+- [ ] **torch.Tensor**
+- [ ] **torch.Storage**
 - [ ] **torch.nn**
+  - [ ] **Parameters**
+  - [ ] **Containers**
+  - [ ] **Convolution Layers**
+  - [ ] **Pooling Layers**
+  - [ ] Non-linear Activations
+  - [ ] Normalization layers
+  - [ ] Recurrent layers
+  - [ ] Linear layers
+  - [ ] Dropout layers
+  - [ ] Sparse layers
+  - [ ] Distance functions
+  - [ ] **Loss functions**
+  - [ ] **Vision layers**
+  - [ ] **Multi-GPU layers**
+  - [ ] **Utilities**
 - [ ] **torch.nn.functional**
-- [ ] torch.nn.init
+  - [ ] Convolution functions
+  - [ ] Pooling functions
+  - [ ] Non-linear activations functions
+  - [ ] Normalization functions
+  - [ ] Linear functions
+  - [ ] Dropout functions
+  - [ ] Distance functions
+  - [ ] Loss functions
+  - [ ] Vision functions
+- [ ] **torch.nn.init**
 - [ ] **torch.optim**
 - [ ] **torch.autograd**
 - [ ] **torch.multiprocessing**
 - [x] torch.legacy(*ycszen*)
-- [ ] torch.cuda
+- [ ] **torch.cuda**
 - [x] torch.utils.ffi(*ycszen*)
 - [x] torch.utils.data(*ycszen*)
 - [x] torch.utils.model_zoo(*ycszen*)
