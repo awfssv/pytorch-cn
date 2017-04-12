@@ -10,6 +10,8 @@ pages:
 - [package_references/ffi.md, 'PACKAGE参考', 'torch.utils.ffi']
 - [package_references/model_zoo.md, 'PACKAGE参考', 'torch.utils.model_zoo']
 - [package_references/data.md, 'PACKAGE参考', 'torch.utils.data']
+- [package_references/Storage.md, 'PACKAGE参考', 'torch.Storage']
+- [package_references/nn_init.md, 'PACKAGE参考', 'torch.nn.init']
 - [torchvision/torchvision.md, 'TORCHVISION参考', 'torchvision']
 - [torchvision/torchvision-datasets.md, 'TORCHVISION参考', 'torchvision.datasets']
 - [torchvision/torchvision-models.md, 'TORCHVISION参考', 'torchvision.models']
