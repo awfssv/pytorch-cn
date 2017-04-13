@@ -26,13 +26,13 @@
   - [ ] **Containers**
   - [ ] **Convolution Layers**
   - [ ] **Pooling Layers**
-  - [ ] Non-linear Activations
+  - [ ] **Non-linear Activations**
   - [ ] Normalization layers
   - [ ] Recurrent layers
-  - [ ] Linear layers
-  - [ ] Dropout layers
-  - [ ] Sparse layers
-  - [ ] Distance functions
+  - [ ] **Linear layers**
+  - [ ] **Dropout layers**
+  - [ ] **Sparse layers**
+  - [ ] **Distance functions**
   - [ ] **Loss functions**
   - [ ] **Vision layers**
   - [ ] **Multi-GPU layers**
