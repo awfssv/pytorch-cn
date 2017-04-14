@@ -5,6 +5,7 @@ class torch.nn.BatchNorm1d(num_features, eps=1e-05, momentum=0.1, affine=True)
 对小批量(mini-batch)的2d或3d输入进行批标准化(Batch Normalization)操作
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default">$$y = \frac{x - mean[x]}{ \sqrt{Var[x]} + \epsilon} * gamma + beta$$</script>
 
+
 在每一个小批量（mini-batch）数据中，计算输入各个维度的均值和标准差。gamma与beta是可学习的N维参数向量（N为输入维度）
 
 在训练时，该层计算每次输入的均值与方差，并进行移动平均。移动平均默认的动量值为0.1。
