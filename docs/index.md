@@ -9,7 +9,7 @@ PyTorch是使用GPU和CPU优化的深度学习张量库。
 - [序列化语义](notes/serialization.md)
 
 ##Package参考
-- [torch]()
+- [torch](package_references/torch.md)
 - [torch.Tensor]()
 - [torch.Storage]()
 - [torch.nn]()
