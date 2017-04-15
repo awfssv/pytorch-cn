@@ -72,8 +72,8 @@ class torch.nn.Dropout2d(p=0.5, inplace=False)
 
 **参数：**
 
-- **p**(*[float](), optional*) - 将元素置0的概率。默认值：0.5
-- **in-place**(*[bool,]() optional*) - 若设置为True，会在原地执行操作。默认值：False
+- **p**(*[float](), optional*) - 将元素置0的概率。
+- **in-place**(*[bool,]() optional*) - 若设置为True，会在原地执行操作。
 
 **形状：**
 
@@ -101,8 +101,8 @@ class torch.nn.Dropout3d(p=0.5, inplace=False)
 
 **参数：**
 
-- **p**(*[float](), optional*) - 将元素置0的概率。默认值：0.5
-- **in-place**(*[bool,]() optional*) - 若设置为True，会在原地执行操作。默认值：False
+- **p**(*[float](), optional*) - 将元素置0的概率。
+- **in-place**(*[bool,]() optional*) - 若设置为True，会在原地执行操作。
 
 **形状：**
 
@@ -142,8 +142,8 @@ class torch.nn.Embedding(num_embeddings, embedding_dim, padding_idx=None, max_no
 
 **形状：**
 
-- **输入：** - LongTensor *(N, W)*, N = mini-batch, W = 每个mini-batch中提取的下标数
-- **输出：** - *(N, W, embedding_dim)*
+- **输入：**  LongTensor *(N, W)*, N = mini-batch, W = 每个mini-batch中提取的下标数
+- **输出：**  *(N, W, embedding_dim)*
 
 **例子：**
 
@@ -200,8 +200,8 @@ $$\Vert x \Vert _p := \left( \sum_{i=1}^n  \vert x_i \vert ^ p \right) ^ {1/p}$$
 
 **形状：**
 
-- **输入：** - \\((N, D)\\)，其中D=向量维数
-- **输出：** - \\((N, 1)\\)
+- **输入：**  \\((N, D)\\)，其中D=向量维数
+- **输出：**  \\((N, 1)\\)
 
 ```python
 >>> pdist = nn.PairwiseDistance(2)
