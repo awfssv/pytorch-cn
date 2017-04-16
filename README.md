@@ -28,24 +28,24 @@
   - [ ] **Pooling Layers**
   - [ ] **Non-linear Activations**
   - [ ] Normalization layers
-  - [ ] Recurrent layers
+  - [x] Recurrent layers(*KeithYin*)
   - [ ] **Linear layers**
   - [ ] **Dropout layers**
   - [ ] **Sparse layers**
   - [ ] **Distance functions**
-  - [ ] **Loss functions**
-  - [ ] **Vision layers**
-  - [ ] **Multi-GPU layers**
-  - [ ] **Utilities**
+  - [x] Loss functions(*KeithYin*)
+  - [x] Vision layers(*KeithYin*)
+  - [x] Multi-GPU layers(*KeithYin*)
+  - [x] Utilities(*KeithYin*)
 - [ ] **torch.nn.functional**
   - [ ] **Convolution functions**
   - [ ] **Pooling functions**
   - [ ] **Non-linear activations functions**
-  - [ ] Normalization functions
-  - [ ] Linear functions
-  - [ ] Dropout functions
-  - [ ] Distance functions
-  - [ ] Loss functions
+  - [ ] **Normalization functions**
+  - [ ] **Linear functions**
+  - [ ] **Dropout functions**
+  - [ ] **Distance functions**
+  - [ ] **Loss functions**
   - [ ] Vision functions
 - [x] torch.nn.init(*kophy*)
 - [ ] **torch.optim**
