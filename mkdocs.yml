@@ -16,6 +16,7 @@ pages:
 - [package_references/data.md, 'PACKAGE参考', 'torch.utils.data']
 - [package_references/Storage.md, 'PACKAGE参考', 'torch.Storage']
 - [package_references/nn_init.md, 'PACKAGE参考', 'torch.nn.init']
+- [package_references/nn.md, 'PACKAGE参考', 'torch.nn']
 - [torchvision/torchvision.md, 'TORCHVISION参考', 'torchvision']
 - [torchvision/torchvision-datasets.md, 'TORCHVISION参考', 'torchvision.datasets']
 - [torchvision/torchvision-models.md, 'TORCHVISION参考', 'torchvision.models']
@@ -24,3 +25,5 @@ pages:
 - [acknowledgement.md, '致谢']
 
 theme: readthedocs
+
+extra_javascript: ['https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML','js/mathjaxhelper.js']

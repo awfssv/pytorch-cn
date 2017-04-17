@@ -67,3 +67,50 @@ torch.nn.functional.conv3d(input, weight, bias=None, stride=1, padding=0, dilati
 ```python
 torch.nn.functional.conv_transpose1d(input, weight, bias=None, stride=1, padding=0, output_padding=0, groups=1)
 ```
+
+
+
+
+
+## 线性函数
+
+```python
+torch.nn.functional.linear(input, weight, bias=None)
+```
+
+## Dropout 函数
+
+```python
+torch.nn.functional.dropout(input, p=0.5, training=False, inplace=False)
+```
+
+## 距离函数（Distance functions）
+
+```python
+torch.nn.functional.pairwise_distance(x1, x2, p=2, eps=1e-06)
+```
+
+计算向量v1、v2之间的距离（成次或者成对，意思是可以计算多个，可以参看后面的参数）
+$$
+\left \| x \right \|_{p}:=\left ( \sum_{i=1}^{N}\left | x_{i}^{p} \right | \right )^{1/p}
+$$
+**参数：**
+
+* x1:第一个输入的张量  
+* x2:第二个输入的张量  
+* p:矩阵范数的维度。默认值是2，即二范数。
+
+**规格：**
+
+- 输入:(N,D)其中D等于向量的维度
+- 输出:(N,1)
+
+**例子：**
+
+```python
+>>> input1 = autograd.Variable(torch.randn(100, 128))
+>>> input2 = autograd.Variable(torch.randn(100, 128))
+>>> output = F.pairwise_distance(input1, input2, p=2)
+>>> output.backward()
+```
+
