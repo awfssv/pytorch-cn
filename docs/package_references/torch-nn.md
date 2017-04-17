@@ -1,8 +1,8 @@
 # torch.nn
 
 
-## Normalization layers
-### class torch.nn.BatchNorm1d(num_features, eps=1e-05, momentum=0.1, affine=True)
+## Normalization layers [<font size=2>[source]</font>](http://pytorch.org/docs/nn.html#normalization-layers)
+### class torch.nn.BatchNorm1d(num_features, eps=1e-05, momentum=0.1, affine=True) [<font size=2>[source]</font>](http://pytorch.org/docs/nn.html#torch.nn.BatchNorm1d)
 
 对小批量(mini-batch)的2d或3d输入进行批标准化(Batch Normalization)操作
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default">\[y = \frac{x - mean[x]}{ \sqrt{Var[x]} + \epsilon} * gamma + beta\]</script>
@@ -35,7 +35,7 @@
 ```
 ***
 
-### class torch.nn.BatchNorm2d(num_features, eps=1e-05, momentum=0.1, affine=True)
+### class torch.nn.BatchNorm2d(num_features, eps=1e-05, momentum=0.1, affine=True)[<font size=2>[source]</font>](http://pytorch.org/docs/_modules/torch/nn/modules/batchnorm.html#BatchNorm2d)
 
 对小批量(mini-batch)3d数据组成的4d输入进行批标准化(Batch Normalization)操作
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default">$$y = \frac{x - mean[x]}{ \sqrt{Var[x]} + \epsilon} * gamma + beta$$</script>
@@ -70,7 +70,7 @@
 ```
 ***
 
-### class torch.nn.BatchNorm3d(num_features, eps=1e-05, momentum=0.1, affine=True)
+### class torch.nn.BatchNorm3d(num_features, eps=1e-05, momentum=0.1, affine=True)[<font size=2>[source]</font>](http://pytorch.org/docs/nn.html#torch.nn.BatchNorm3d)
 
 对小批量(mini-batch)4d数据组成的5d输入进行批标准化(Batch Normalization)操作
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default">$$y = \frac{x - mean[x]}{ \sqrt{Var[x]} + \epsilon} * gamma + beta$$</script>
