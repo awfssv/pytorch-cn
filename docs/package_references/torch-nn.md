@@ -1,5 +1,383 @@
 # torch.nn
 
+## Non-Linear Activations [<font size=2>[source]</font>](http://pytorch.org/docs/nn.html#non-linear-activations)
+
+> class torch.nn.ReLU(inplace=False) [<font size=2>[source]</font>](http://pytorch.org/docs/_modules/torch/nn/modules/activation.html#ReLU)
+
+对输入运用修正线性单元函数${ReLU}(x)= max(0, x)$，
+
+参数： inplace-选择是否进行覆盖运算
+
+shape：
+
+ - 输入：$(N, *)$，*代表任意数目附加维度
+ - 输出：$(N, *)$，与输入拥有同样的shape属性
+    
+例子：
+
+```python
+>>> m = nn.ReLU()
+>>> input = autograd.Variable(torch.randn(2))
+>>> print(input)
+>>> print(m(input))
+```
+
+> class torch.nn.ReLU6(inplace=False) [<font size=2>[source]</font>](http://pytorch.org/docs/_modules/torch/nn/modules/activation.html#ReLU6)
+
+对输入的每一个元素运用函数${ReLU6}(x) = min(max(0,x), 6)$，
+
+参数： inplace-选择是否进行覆盖运算
+
+shape：
+
+ - 输入：$(N, *)$，*代表任意数目附加维度
+ - 输出：$(N, *)$，与输入拥有同样的shape属性
+    
+例子：
+
+```python
+>>> m = nn.ReLU6()
+>>> input = autograd.Variable(torch.randn(2))
+>>> print(input)
+>>> print(m(input))
+```
+> class torch.nn.ELU(alpha=1.0,   inplace=False) [<font size=2>[source]</font>](http://pytorch.org/docs/_modules/torch/nn/modules/activation.html#ELU)
+
+对输入的每一个元素运用函数$f(x) = max(0,x) + min(0, alpha * (e^x - 1))$，
+
+shape：
+
+ - 输入：$(N, *)$，星号代表任意数目附加维度
+ - 输出：$(N, *)$与输入拥有同样的shape属性
+    
+例子：
+
+```python
+>>> m = nn.ELU()
+>>> input = autograd.Variable(torch.randn(2))
+>>> print(input)
+>>> print(m(input))
+```
+> class torch.nn.PReLU(num_parameters=1, init=0.25)[<font size=2>[source]</font>](http://pytorch.org/docs/_modules/torch/nn/modules/activation.html#PReLU)
+
+对输入的每一个元素运用函数$PReLU(x) = max(0,x) + a * min(0,x)$，`a`是一个可学习参数。当没有声明时，`nn.PReLU()`在所有的输入中只有一个参数`a`；如果是`nn.PReLU(nChannels)`，`a`将应用到每个输入。
+
+注意：当为了表现更佳的模型而学习参数`a`时不要使用权重衰减（weight decay）
+
+参数：
+
+- num_parameters：需要学习的`a`的个数，默认等于1
+- init：`a`的初始值，默认等于0.25
+
+shape：
+
+ - 输入：$(N, *)$，*代表任意数目附加维度
+ - 输出：$(N, *)$，与输入拥有同样的shape属性
+    
+例子：
+
+```python
+>>> m = nn.PReLU()
+>>> input = autograd.Variable(torch.randn(2))
+>>> print(input)
+>>> print(m(input))
+```
+> class torch.nn.LeakyReLU(negative_slope=0.01, inplace=False) [<font size=2>[source]</font>](http://pytorch.org/docs/_modules/torch/nn/modules/activation.html#LeakyReLU)
+
+对输入的每一个元素运用$f(x) = max(0, x) + {negative\_slope} * min(0, x)$
+
+参数：
+
+- negative_slope：控制负斜率的角度，默认等于0.01
+- inplace-选择是否进行覆盖运算
+
+shape：
+
+ - 输入：$(N, *)$，*代表任意数目附加维度
+ - 输出：$(N, *)$，与输入拥有同样的shape属性
+    
+例子：
+
+```python
+>>> m = nn.LeakyReLU(0.1)
+>>> input = autograd.Variable(torch.randn(2))
+>>> print(input)
+>>> print(m(input))
+```
+
+> class torch.nn.Threshold(threshold, value, inplace=False) [<font size=2>[source]</font>](http://pytorch.org/docs/_modules/torch/nn/modules/activation.html#Threshold)
+
+Threshold定义：
+
+$$
+y =  x ,if\ x >= threshold\\
+y = value,if\ x <  threshold
+$$
+
+参数：
+
+- threshold：阈值
+- value：输入值小于阈值则会被value代替
+- inplace：选择是否进行覆盖运算
+
+
+shape：
+
+ - 输入：$(N, *)$，*代表任意数目附加维度
+ - 输出：$(N, *)$，与输入拥有同样的shape属性
+    
+例子：
+
+```python
+>>> m = nn.Threshold(0.1, 20)
+>>> input = Variable(torch.randn(2))
+>>> print(input)
+>>> print(m(input))
+```
+> class torch.nn.Hardtanh(min_value=-1, max_value=1, inplace=False) [<font size=2>[source]</font>](http://pytorch.org/docs/_modules/torch/nn/modules/activation.html#Hardtanh)
+
+对每个元素，
+
+$$
+f(x) = +1, if\ x  >  1;\\
+f(x) = -1, if\ x  < -1;\\
+f(x) =  x,  otherwise
+$$
+
+线性区域的范围[-1,1]可以被调整
+
+参数：
+
+- min_value：线性区域范围最小值
+- max_value：线性区域范围最大值
+- inplace：选择是否进行覆盖运算
+
+shape：
+
+ - 输入：(N, \*)，*表示任意维度组合
+ - 输出：(N, *)，与输入有相同的shape属性
+    
+例子：
+
+```python
+>>> m = nn.Hardtanh()
+>>> input = autograd.Variable(torch.randn(2))
+>>> print(input)
+>>> print(m(input))
+```
+> class torch.nn.Sigmoid [<font size=2>[source]</font>](http://pytorch.org/docs/_modules/torch/nn/modules/activation.html#Sigmoid)
+
+对每个元素运用Sigmoid函数，Sigmoid 定义如下：
+
+$$f(x) = 1 / ( 1 + e^{-x})$$
+
+shape：
+
+ - 输入：(N, \*)，*表示任意维度组合
+ - 输出：(N, *)，与输入有相同的shape属性
+    
+例子：
+
+```python
+>>> m = nn.Sigmoid()
+>>> input = autograd.Variable(torch.randn(2))
+>>> print(input)
+>>> print(m(input))
+```
+> class torch.nn.Tanh [<font size=2>[source]</font>](http://pytorch.org/docs/_modules/torch/nn/modules/activation.html#Tanh)
+
+对输入的每个元素，
+
+$$f(x) = \frac{e^{x} - e^{-x}} {e^{x} + e^{x}}$$
+
+shape：
+
+- 输入：(N, \*)，*表示任意维度组合
+- 输出：(N, *)，与输入有相同的shape属性
+    
+例子：
+
+```python
+>>> m = nn.Tanh()
+>>> input = autograd.Variable(torch.randn(2))
+>>> print(input)
+>>> print(m(input))
+```
+> class torch.nn.LogSigmoid [<font size=2>[source]</font>](http://pytorch.org/docs/_modules/torch/nn/modules/activation.html#LogSigmoid)
+
+对输入的每个元素，$LogSigmoid(x) = log( 1 / ( 1 + e^{-x}))$
+
+shape：
+
+- 输入：(N, \*)，*表示任意维度组合
+- 输出：(N, *)，与输入有相同的shape属性
+    
+例子：
+
+```python
+>>> m = nn.LogSigmoid()
+>>> input = autograd.Variable(torch.randn(2))
+>>> print(input)
+>>> print(m(input))
+```
+> class torch.nn.Softplus(beta=1, threshold=20)[<font size=2>[source]</font>](http://pytorch.org/docs/_modules/torch/nn/modules/activation.html#Softplus)
+
+对每个元素运用Softplus函数，Softplus 定义如下：
+
+$$f(x) = \frac{1}{beta} * log(1 + e^{(beta * x_i)})$$
+
+Softplus函数是ReLU函数的平滑逼近，Softplus函数可以使得输出值限定为正数。
+
+为了保证数值稳定性，线性函数的转换可以使输出大于某个值。
+
+参数：
+
+- beta：Softplus函数的beta值
+- threshold：阈值
+
+shape：
+
+- 输入：(N, \*)，*表示任意维度组合
+- 输出：(N, *)，与输入有相同的shape属性
+    
+例子：
+
+```python
+>>> m = nn.Softplus()
+>>> input = autograd.Variable(torch.randn(2))
+>>> print(input)
+>>> print(m(input))
+```
+> class torch.nn.Softshrink(lambd=0.5)[<font size=2>[source]</font>](http://pytorch.org/docs/_modules/torch/nn/modules/activation.html#Softshrink)
+
+对每个元素运用Softshrink函数，Softshrink函数定义如下：
+
+$$
+f(x) = x-lambda, if\ x > lambda\\
+f(x) = x+lambda, if\ x < -lambda\\
+f(x) = 0, otherwise
+$$
+
+参数：
+
+lambd：Softshrink函数的lambda值，默认为0.5
+
+shape：
+
+ - 输入：(N, \*)，*表示任意维度组合
+ - 输出：(N, *)，与输入有相同的shape属性
+    
+例子：
+
+```python
+>>> m = nn.Softshrink()
+>>> input = autograd.Variable(torch.randn(2))
+>>> print(input)
+>>> print(m(input))
+```
+> class torch.nn.Softsign [<font size=2>[source]</font>](http://pytorch.org/docs/_modules/torch/nn/modules/activation.html#Softsign)
+
+$f(x) = x / (1 + |x|)$
+
+shape：
+
+ - 输入：(N, \*)，*表示任意维度组合
+ - 输出：(N, *)，与输入有相同的shape属性
+    
+例子：
+
+```python
+>>> m = nn.Softsign()
+>>> input = autograd.Variable(torch.randn(2))
+>>> print(input)
+>>> print(m(input))
+```
+
+> class torch.nn.Softshrink(lambd=0.5)[<font size=2>[source]</font>](http://pytorch.org/docs/_modules/torch/nn/modules/activation.html#Softshrink)
+
+对每个元素运用Tanhshrink函数，Tanhshrink函数定义如下：
+
+$$
+Tanhshrink(x) = x - Tanh(x)
+$$
+
+shape：
+
+ - 输入：(N, \*)，*表示任意维度组合
+ - 输出：(N, *)，与输入有相同的shape属性
+    
+例子：
+
+```python
+>>> m = nn.Tanhshrink()
+>>> input = autograd.Variable(torch.randn(2))
+>>> print(input)
+>>> print(m(input))
+```
+> class torch.nn.Softmin [<font size=2>[source]</font>](http://pytorch.org/docs/_modules/torch/nn/modules/activation.html#Softmin)
+
+对n维输入张量运用Softmin函数，将张量的每个元素缩放到（0,1）区间且和为1。Softmin函数定义如下：
+
+$$f_i(x) = \frac{e^{(-x_i - shift)}} { \sum^j e^{(-x_j - shift)}},shift = max (x_i)$$
+
+shape：
+
+ - 输入：(N, L)
+ - 输出：(N, L)
+    
+例子：
+
+```python
+>>> m = nn.Softmin()
+>>> input = autograd.Variable(torch.randn(2, 3))
+>>> print(input)
+>>> print(m(input))
+```
+
+----------
+
+
+> class torch.nn.Softmax [<font size=2>[source]</font>](http://pytorch.org/docs/_modules/torch/nn/modules/activation.html#Softmax)
+
+对n维输入张量运用Softmax函数，将张量的每个元素缩放到（0,1）区间且和为1。Softmax函数定义如下：
+
+$$f_i(x) = \frac{e^{(x_i - shift)}} { \sum^j e^{(x_j - shift)}},shift = max (x_i)$$
+
+shape：
+
+ - 输入：(N, L)
+ - 输出：(N, L)
+
+返回结果是一个与输入维度相同的张量，每个元素的取值范围在（0,1）区间。
+
+例子：
+
+```python
+>>> m = nn.Softmax()
+>>> input = autograd.Variable(torch.randn(2, 3))
+>>> print(input)
+>>> print(m(input))
+```
+
+> class torch.nn.LogSoftmax [<font size=2>[source]</font>](http://pytorch.org/docs/_modules/torch/nn/modules/activation.html#LogSoftmax)
+
+对n维输入张量运用LogSoftmax函数，LogSoftmax函数定义如下：
+
+$$f_i(x) = log \frac{e^{(x_i)}} {a}, a = \sum^j e^{(x_j)}$$
+
+shape：
+
+ - 输入：(N, L)
+ - 输出：(N, L)
+    
+例子：
+
+```python
+>>> m = nn.LogSoftmax()
+>>> input = autograd.Variable(torch.randn(2, 3))
+>>> print(input)
+>>> print(m(input))
+```
 
 ## Normalization layers [<font size=2>[source]</font>](http://pytorch.org/docs/nn.html#normalization-layers)
 ### class torch.nn.BatchNorm1d(num_features, eps=1e-05, momentum=0.1, affine=True) [<font size=2>[source]</font>](http://pytorch.org/docs/nn.html#torch.nn.BatchNorm1d)
