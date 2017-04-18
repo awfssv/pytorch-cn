@@ -68,9 +68,207 @@ torch.nn.functional.conv3d(input, weight, bias=None, stride=1, padding=0, dilati
 torch.nn.functional.conv_transpose1d(input, weight, bias=None, stride=1, padding=0, output_padding=0, groups=1)
 ```
 
+```python
+torch.nn.functional.conv_transpose2d(input, weight, bias=None, stride=1, padding=0, output_padding=0, groups=1)
+```
+在由几个输入平面组成的输入图像上应用二维转置卷积，有时也称为“去卷积”。
 
+有关详细信息和输出形状，请参阅`ConvTranspose2d`。
 
+**参数：**
+- input – 输入张量的形状 (minibatch x in_channels x iH x iW)
+- weight – 过滤器的形状 (in_channels x out_channels x kH x kW)
+- bias – 可选偏置的形状 (out_channels)
+- stride – 卷积核的步长，可以是单个数字或一个元组 (sh x sw)。默认: 1
+- padding – 输入上隐含零填充。可以是单个数字或元组。 (padh x padw)。默认: 0
+- groups – 将输入分成组，`in_channels`应该被组数除尽
+- output_padding – 0 <= padding <stride的零填充，应该添加到输出。可以是单个数字或元组。默认值：0
 
+```python
+torch.nn.functional.conv_transpose3d(input, weight, bias=None, stride=1, padding=0, output_padding=0, groups=1)
+```
+在由几个输入平面组成的输入图像上应用三维转置卷积，有时也称为“去卷积”。
+
+有关详细信息和输出形状，请参阅`ConvTranspose3d`。
+
+**参数：**
+- input – 输入张量的形状 (minibatch x in_channels x iT x iH x iW)
+- weight – 过滤器的形状 (in_channels x out_channels x kH x kW)
+- bias – 可选偏置的形状 (out_channels)
+- stride – 卷积核的步长，可以是单个数字或一个元组 (sh x sw)。默认: 1
+- padding – 输入上隐含零填充。可以是单个数字或元组。 (padh x padw)。默认: 0
+
+## Pooling 函数
+```python
+torch.nn.functional.avg_pool1d(input, kernel_size, stride=None, padding=0, ceil_mode=False, count_include_pad=True)
+```
+对由几个输入平面组成的输入信号进行一维平均池化。
+
+有关详细信息和输出形状，请参阅`AvgPool1d`。
+
+**参数：**
+- kernel_size – 窗口的大小
+- stride – 窗口的步长。默认值为`kernel_size`
+- padding – 在两边添加隐式零填充
+- ceil_mode – 当为True时，将使用`ceil`代替`floor`来计算输出形状
+- count_include_pad – 当为True时，这将在平均计算时包括补零
+
+**例子：**
+```python
+>>> # pool of square window of size=3, stride=2
+>>> input = Variable(torch.Tensor([[[1,2,3,4,5,6,7]]]))
+>>> F.avg_pool1d(input, kernel_size=3, stride=2)
+Variable containing:
+(0 ,.,.) =
+  2  4  6
+[torch.FloatTensor of size 1x1x3]
+```
+
+```python
+torch.nn.functional.avg_pool2d(input, kernel_size, stride=None, padding=0, ceil_mode=False, count_include_pad=True)
+```
+在kh x kw区域中应用步长为dh x dw的二维平均池化操作。输出特征的数量等于输入平面的数量。
+
+有关详细信息和输出形状，请参阅`AvgPool2d`。
+
+**参数：**
+- input – 输入的张量 (minibatch x in_channels x iH x iW)
+- kernel_size – 池化区域的大小，可以是单个数字或者元组 (kh x kw)
+- stride – 池化操作的步长，可以是单个数字或者元组 (sh x sw)。默认等于核的大小
+- padding – 在输入上隐式的零填充，可以是单个数字或者一个元组 (padh x padw)，默认: 0
+- ceil_mode – 定义空间输出形状的操作
+- count_include_pad – 除以原始非填充图像内的元素数量或kh * kw
+
+```python
+torch.nn.functional.avg_pool3d(input, kernel_size, stride=None)
+```
+在kt x kh x kw区域中应用步长为dt x dh x dw的二维平均池化操作。输出特征的数量等于 input planes / dt。
+
+```python
+torch.nn.functional.max_pool1d(input, kernel_size, stride=None, padding=0, dilation=1, ceil_mode=False, return_indices=False)
+```
+
+```python
+torch.nn.functional.max_pool2d(input, kernel_size, stride=None, padding=0, dilation=1, ceil_mode=False, return_indices=False)
+```
+
+```python
+torch.nn.functional.max_pool3d(input, kernel_size, stride=None, padding=0, dilation=1, ceil_mode=False, return_indices=False)
+```
+
+```python
+torch.nn.functional.max_unpool1d(input, indices, kernel_size, stride=None, padding=0, output_size=None)
+```
+
+```python
+torch.nn.functional.max_unpool2d(input, indices, kernel_size, stride=None, padding=0, output_size=None)[source]
+```
+
+```python
+torch.nn.functional.max_unpool3d(input, indices, kernel_size, stride=None, padding=0, output_size=None)
+```
+
+```python
+torch.nn.functional.lp_pool2d(input, norm_type, kernel_size, stride=None, ceil_mode=False)
+```
+
+```python
+torch.nn.functional.adaptive_max_pool1d(input, output_size, return_indices=False)
+```
+
+```python
+torch.nn.functional.adaptive_max_pool2d(input, output_size, return_indices=False)
+```
+
+```python
+torch.nn.functional.adaptive_avg_pool1d(input, output_size)
+```
+
+```python
+torch.nn.functional.adaptive_avg_pool2d(input, output_size)
+```
+
+## 非线性激活函数
+```python
+torch.nn.functional.threshold(input, threshold, value, inplace=False)
+```
+
+```python
+torch.nn.functional.relu(input, inplace=False)
+```
+
+```python
+torch.nn.functional.hardtanh(input, min_val=-1.0, max_val=1.0, inplace=False)
+```
+
+```python
+torch.nn.functional.relu6(input, inplace=False)
+```
+
+```python
+torch.nn.functional.elu(input, alpha=1.0, inplace=False)
+```
+
+```python
+torch.nn.functional.leaky_relu(input, negative_slope=0.01, inplace=False)
+```
+
+```python
+torch.nn.functional.prelu(input, weight)
+```
+
+```python
+torch.nn.functional.rrelu(input, lower=0.125, upper=0.3333333333333333, training=False, inplace=False)
+```
+
+```python
+torch.nn.functional.logsigmoid(input)
+```
+
+```python
+torch.nn.functional.hardshrink(input, lambd=0.5)
+```
+
+```python
+torch.nn.functional.tanhshrink(input)
+```
+
+```python
+torch.nn.functional.softsign(input)
+```
+
+```python
+torch.nn.functional.softplus(input, beta=1, threshold=20)
+```
+
+```python
+torch.nn.functional.softmin(input)
+```
+
+```python
+torch.nn.functional.softmax(input)
+```
+
+```python
+torch.nn.functional.softshrink(input, lambd=0.5)
+```
+
+```python
+torch.nn.functional.log_softmax(input)
+```
+
+```python
+torch.nn.functional.tanh(input)
+```
+
+```python
+torch.nn.functional.sigmoid(input)
+```
+
+## Normalization 函数
+```python
+torch.nn.functional.batch_norm(input, running_mean, running_var, weight=None, bias=None, training=False, momentum=0.1, eps=1e-05)
+```
 
 ## 线性函数
 
@@ -113,4 +311,3 @@ $$
 >>> output = F.pairwise_distance(input1, input2, p=2)
 >>> output.backward()
 ```
-
