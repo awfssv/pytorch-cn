@@ -76,13 +76,13 @@ torch.nn.functional.conv_transpose2d(input, weight, bias=None, stride=1, padding
 有关详细信息和输出形状，请参阅`ConvTranspose2d`。
 
 **参数：**
-- input – 输入张量的形状 (minibatch x in_channels x iH x iW)
-- weight – 过滤器的形状 (in_channels x out_channels x kH x kW)
-- bias – 可选偏置的形状 (out_channels)
-- stride – 卷积核的步长，可以是单个数字或一个元组 (sh x sw)。默认: 1
-- padding – 输入上隐含零填充。可以是单个数字或元组。 (padh x padw)。默认: 0
-- groups – 将输入分成组，`in_channels`应该被组数除尽
-- output_padding – 0 <= padding <stride的零填充，应该添加到输出。可以是单个数字或元组。默认值：0
+- **input** – 输入张量的形状 (minibatch x in_channels x iH x iW)
+- **weight** – 过滤器的形状 (in_channels x out_channels x kH x kW)
+- **bias** – 可选偏置的形状 (out_channels)
+- **stride** – 卷积核的步长，可以是单个数字或一个元组 (sh x sw)。默认: 1
+- **padding** – 输入上隐含零填充。可以是单个数字或元组。 (padh x padw)。默认: 0
+- **groups** – 将输入分成组，`in_channels`应该被组数除尽
+- **output_padding** – 0 <= padding <stride的零填充，应该添加到输出。可以是单个数字或元组。默认值：0
 
 ```python
 torch.nn.functional.conv_transpose3d(input, weight, bias=None, stride=1, padding=0, output_padding=0, groups=1)
@@ -92,11 +92,11 @@ torch.nn.functional.conv_transpose3d(input, weight, bias=None, stride=1, padding
 有关详细信息和输出形状，请参阅`ConvTranspose3d`。
 
 **参数：**
-- input – 输入张量的形状 (minibatch x in_channels x iT x iH x iW)
-- weight – 过滤器的形状 (in_channels x out_channels x kH x kW)
-- bias – 可选偏置的形状 (out_channels)
-- stride – 卷积核的步长，可以是单个数字或一个元组 (sh x sw)。默认: 1
-- padding – 输入上隐含零填充。可以是单个数字或元组。 (padh x padw)。默认: 0
+- **input** – 输入张量的形状 (minibatch x in_channels x iT x iH x iW)
+- **weight** – 过滤器的形状 (in_channels x out_channels x kH x kW)
+- **bias** – 可选偏置的形状 (out_channels)
+- **stride** – 卷积核的步长，可以是单个数字或一个元组 (sh x sw)。默认: 1
+- **padding** – 输入上隐含零填充。可以是单个数字或元组。 (padh x padw)。默认: 0
 
 ## Pooling 函数
 ```python
@@ -107,11 +107,11 @@ torch.nn.functional.avg_pool1d(input, kernel_size, stride=None, padding=0, ceil_
 有关详细信息和输出形状，请参阅`AvgPool1d`。
 
 **参数：**
-- kernel_size – 窗口的大小
-- stride – 窗口的步长。默认值为`kernel_size`
-- padding – 在两边添加隐式零填充
-- ceil_mode – 当为True时，将使用`ceil`代替`floor`来计算输出形状
-- count_include_pad – 当为True时，这将在平均计算时包括补零
+- **kernel_size** – 窗口的大小
+- **stride** – 窗口的步长。默认值为`kernel_size`
+- **padding** – 在两边添加隐式零填充
+- **ceil_mode** – 当为True时，将使用`ceil`代替`floor`来计算输出形状
+- **count_include_pad** – 当为True时，这将在平均计算时包括补零
 
 **例子：**
 ```python
@@ -132,12 +132,12 @@ torch.nn.functional.avg_pool2d(input, kernel_size, stride=None, padding=0, ceil_
 有关详细信息和输出形状，请参阅`AvgPool2d`。
 
 **参数：**
-- input – 输入的张量 (minibatch x in_channels x iH x iW)
-- kernel_size – 池化区域的大小，可以是单个数字或者元组 (kh x kw)
-- stride – 池化操作的步长，可以是单个数字或者元组 (sh x sw)。默认等于核的大小
-- padding – 在输入上隐式的零填充，可以是单个数字或者一个元组 (padh x padw)，默认: 0
-- ceil_mode – 定义空间输出形状的操作
-- count_include_pad – 除以原始非填充图像内的元素数量或kh * kw
+- **input** – 输入的张量 (minibatch x in_channels x iH x iW)
+- **kernel_size** – 池化区域的大小，可以是单个数字或者元组 (kh x kw)
+- **stride** – 池化操作的步长，可以是单个数字或者元组 (sh x sw)。默认等于核的大小
+- **padding** – 在输入上隐式的零填充，可以是单个数字或者一个元组 (padh x padw)，默认: 0
+- **ceil_mode** – 定义空间输出形状的操作
+- **count_include_pad** – 除以原始非填充图像内的元素数量或kh * kw
 
 ```python
 torch.nn.functional.avg_pool3d(input, kernel_size, stride=None)
@@ -161,7 +161,7 @@ torch.nn.functional.max_unpool1d(input, indices, kernel_size, stride=None, paddi
 ```
 
 ```python
-torch.nn.functional.max_unpool2d(input, indices, kernel_size, stride=None, padding=0, output_size=None)[source]
+torch.nn.functional.max_unpool2d(input, indices, kernel_size, stride=None, padding=0, output_size=None)
 ```
 
 ```python
@@ -175,18 +175,46 @@ torch.nn.functional.lp_pool2d(input, norm_type, kernel_size, stride=None, ceil_m
 ```python
 torch.nn.functional.adaptive_max_pool1d(input, output_size, return_indices=False)
 ```
+在由几个输入平面组成的输入信号上应用1D自适应最大池化。
+
+有关详细信息和输出形状，请参阅`AdaptiveMaxPool1d`。
+
+**参数：**
+- **output_size** – 目标输出大小（单个整数）
+- **return_indices** – 是否返回池化的指数
 
 ```python
 torch.nn.functional.adaptive_max_pool2d(input, output_size, return_indices=False)
 ```
+在由几个输入平面组成的输入信号上应用2D自适应最大池化。
+
+有关详细信息和输出形状，请参阅`AdaptiveMaxPool2d`。
+
+**参数：**
+- **output_size** – 目标输出大小（单整数或双整数元组）
+- **return_indices** – 是否返回池化的指数
 
 ```python
 torch.nn.functional.adaptive_avg_pool1d(input, output_size)
 ```
+在由几个输入平面组成的输入信号上应用1D自适应平均池化。
+
+有关详细信息和输出形状，请参阅`AdaptiveAvgPool1d`。
+
+**参数：**
+- **output_size** – 目标输出大小（单整数或双整数元组）
+
 
 ```python
 torch.nn.functional.adaptive_avg_pool2d(input, output_size)
 ```
+在由几个输入平面组成的输入信号上应用2D自适应平均池化。
+
+有关详细信息和输出形状，请参阅`AdaptiveAvgPool2d`。
+
+**参数：**
+- **output_size** – 目标输出大小（单整数或双整数元组）
+
 
 ## 非线性激活函数
 ```python
