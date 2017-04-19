@@ -24,8 +24,8 @@
 - [ ] **torch.nn**
   - [ ] **Parameters**
   - [ ] **Containers**
-  - [ ] **Convolution Layers**
-  - [ ] **Pooling Layers**
+  - [ ] **Convolution Layers**(吴锦林)
+  - [ ] **Pooling Layers**(吴锦林)
   - [ ] **Non-linear Activations**
   - [ ] **Normalization layers**
   - [x] Recurrent layers(*KeithYin*)
