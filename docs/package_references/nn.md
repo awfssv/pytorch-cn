@@ -190,7 +190,7 @@ class torch.nn.PairwiseDistance(p=2, eps=1e-06)
 按批计算向量v1, v2之间的距离：
 
 
-$$\Vert x \Vert _p := \left( \sum_{i=1}^n  \vert x_i \vert ^ p \right) ^ {1/p}$$
+$$\Vert x \Vert _p := \left( \sum\_{i=1}^n  \vert x_i \vert ^ p \right) ^ {1/p}$$
 
 
 **参数：**
