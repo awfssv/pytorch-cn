@@ -18,14 +18,14 @@
 - [x] Serialization semantics (*ycszen*)
 
 ### Package Reference
-- [ ] **torch**
-- [ ] **torch.Tensor**
+- [ ] **torch**(小龙)
+- [ ] **torch.Tensor**(魏国强)
 - [x] torch.Storage(*kophy*)
 - [ ] **torch.nn**
   - [ ] **Parameters**
   - [ ] **Containers**
-  - [ ] **Convolution Layers**
-  - [ ] **Pooling Layers**
+  - [ ] **Convolution Layers**(吴锦林)
+  - [ ] **Pooling Layers**(吴锦林)
   - [ ] **Non-linear Activations**
   - [ ] **Normalization layers**
   - [x] Recurrent layers(*KeithYin*)
@@ -38,19 +38,19 @@
   - [x] Multi-GPU layers(*KeithYin*)
   - [x] Utilities(*KeithYin*)
 - [ ] **torch.nn.functional**
-  - [ ] **Convolution functions**
-  - [ ] **Pooling functions**
-  - [ ] **Non-linear activations functions**
-  - [ ] **Normalization functions**
+  - [x] Convolution functions(*ycszen*)
+  - [x] Pooling functions(*ycszen*)
+  - [x] Non-linear activations functions(*ycszen*)
+  - [x] Normalization functions(*ycszen*)
   - [ ] **Linear functions**
   - [ ] **Dropout functions**
-  - [ ] **Distance functions**
-  - [ ] **Loss functions**
-  - [ ] Vision functions
+  - [ ] **Distance functions**(飞彦)
+  - [ ] **Loss functions**(飞彦)
+  - [ ] **Vision functions**(KeithYin)
 - [x] torch.nn.init(*kophy*)
-- [ ] **torch.optim**
+- [ ] **torch.optim**(邓梓君)
 - [x] torch.autograd(*KeithYin*)
-- [ ] **torch.multiprocessing**
+- [ ] **torch.multiprocessing**(韩松伯)
 - [x] torch.legacy(*ycszen*)
 - [x] torch.cuda(*ycszen*)
 - [x] torch.utils.ffi(*ycszen*)
