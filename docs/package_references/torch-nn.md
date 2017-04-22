@@ -12,7 +12,7 @@ shape：
 
  - 输入：$(N, *)$，*代表任意数目附加维度
  - 输出：$(N, *)$，与输入拥有同样的shape属性
-    
+
 例子：
 
 ```python
@@ -32,7 +32,7 @@ shape：
 
  - 输入：$(N, *)$，*代表任意数目附加维度
  - 输出：$(N, *)$，与输入拥有同样的shape属性
-    
+
 例子：
 
 ```python
@@ -49,7 +49,7 @@ shape：
 
  - 输入：$(N, *)$，星号代表任意数目附加维度
  - 输出：$(N, *)$与输入拥有同样的shape属性
-    
+
 例子：
 
 ```python
@@ -73,7 +73,7 @@ shape：
 
  - 输入：$(N, *)$，*代表任意数目附加维度
  - 输出：$(N, *)$，与输入拥有同样的shape属性
-    
+
 例子：
 
 ```python
@@ -95,7 +95,7 @@ shape：
 
  - 输入：$(N, *)$，*代表任意数目附加维度
  - 输出：$(N, *)$，与输入拥有同样的shape属性
-    
+
 例子：
 
 ```python
@@ -125,7 +125,7 @@ shape：
 
  - 输入：$(N, *)$，*代表任意数目附加维度
  - 输出：$(N, *)$，与输入拥有同样的shape属性
-    
+
 例子：
 
 ```python
@@ -156,7 +156,7 @@ shape：
 
  - 输入：(N, \*)，*表示任意维度组合
  - 输出：(N, *)，与输入有相同的shape属性
-    
+
 例子：
 
 ```python
@@ -175,7 +175,7 @@ shape：
 
  - 输入：(N, \*)，*表示任意维度组合
  - 输出：(N, *)，与输入有相同的shape属性
-    
+
 例子：
 
 ```python
@@ -194,7 +194,7 @@ shape：
 
 - 输入：(N, \*)，*表示任意维度组合
 - 输出：(N, *)，与输入有相同的shape属性
-    
+
 例子：
 
 ```python
@@ -211,7 +211,7 @@ shape：
 
 - 输入：(N, \*)，*表示任意维度组合
 - 输出：(N, *)，与输入有相同的shape属性
-    
+
 例子：
 
 ```python
@@ -239,7 +239,7 @@ shape：
 
 - 输入：(N, \*)，*表示任意维度组合
 - 输出：(N, *)，与输入有相同的shape属性
-    
+
 例子：
 
 ```python
@@ -266,7 +266,7 @@ shape：
 
  - 输入：(N, \*)，*表示任意维度组合
  - 输出：(N, *)，与输入有相同的shape属性
-    
+
 例子：
 
 ```python
@@ -283,7 +283,7 @@ shape：
 
  - 输入：(N, \*)，*表示任意维度组合
  - 输出：(N, *)，与输入有相同的shape属性
-    
+
 例子：
 
 ```python
@@ -305,7 +305,7 @@ shape：
 
  - 输入：(N, \*)，*表示任意维度组合
  - 输出：(N, *)，与输入有相同的shape属性
-    
+
 例子：
 
 ```python
@@ -324,7 +324,7 @@ shape：
 
  - 输入：(N, L)
  - 输出：(N, L)
-    
+
 例子：
 
 ```python
@@ -369,7 +369,7 @@ shape：
 
  - 输入：(N, L)
  - 输出：(N, L)
-    
+
 例子：
 
 ```python
@@ -1269,9 +1269,10 @@ All RNN modules accept packed sequences as inputs.
 
 - batch_sizes (list[int]) – 包含 `mini-batch` 中每个序列长度的列表。
 
-#### torch.nn.utils.rnn.pack_padded_sequence(input, lengths, batch_first=False)[source]
-Packs a Variable containing padded sequences of variable length.
-把一个包含 填充过的变长序列 `Variable`打包。
+### torch.nn.utils.rnn.pack_padded_sequence(input, lengths, batch_first=False)[source]
+
+这里的`pack`，理解成压紧比较好。
+将一个 填充过的变长序列 压紧。（填充时候，会有冗余，所以压紧一下）
 
 输入的形状可以是(T×B×* )。`T`是最长序列长度，`B`是`batch size`，`*`代表任意维度(可以是0)。如果`batch_first=True`的话，那么相应的 `input size` 就是 `(B×T×*)`。
 
@@ -1294,9 +1295,9 @@ Packs a Variable containing padded sequences of variable length.
 
 ### torch.nn.utils.rnn.pad_packed_sequence(sequence, batch_first=False)[source]
 
-填充变长序列的打包的batch
-Pads a packed batch of variable length sequences.
-这个操作和pack_padded_sequence()是相反的。
+填充`packed_sequence`。
+
+上面提到的函数的功能是将一个填充后的变长序列压紧。 这个操作和pack_padded_sequence()是相反的。把压紧的序列再填充回来。
 
 返回的Varaible的值的`size`是 `T×B×*`, `T` 是最长序列的长度，`B` 是 batch_size,如果 `batch_first=True`,那么返回值是`B×T×*`。
 
@@ -1311,3 +1312,35 @@ Batch中的元素将会以它们长度的逆序排列。
 
 返回值:
 一个tuple，包含被填充后的序列，和batch中序列的长度列表。
+
+例子：
+```python
+import torch
+import torch.nn as nn
+from torch.autograd import Variable
+from torch.nn import utils as nn_utils
+batch_size = 2
+max_length = 3
+hidden_size = 2
+n_layers =1
+
+tensor_in = torch.FloatTensor([[1, 2, 3], [1, 0, 0]]).resize_(2,3,1)
+tensor_in = Variable( tensor_in ) #[batch, seq, feature], [2, 3, 1]
+seq_lengths = [3,1] # list of integers holding information about the batch size at each sequence step
+
+# pack it
+pack = nn_utils.rnn.pack_padded_sequence(tensor_in, seq_lengths, batch_first=True)
+
+# initialize
+rnn = nn.RNN(1, hidden_size, n_layers, batch_first=True)
+h0 = Variable(torch.randn(n_layers, batch_size, hidden_size))
+
+#forward
+out, _ = rnn(pack, h0)
+
+# unpack
+unpacked = nn_utils.rnn.pad_packed_sequence(out)
+print(unpacked)
+```
+
+[关于packed_sequence](https://discuss.pytorch.org/t/how-can-i-compute-seq2seq-loss-using-mask/861)

@@ -26,8 +26,8 @@
   - [ ] **Containers**
   - [ ] **Convolution Layers**(吴锦林)
   - [ ] **Pooling Layers**(吴锦林)
-  - [ ] **Non-linear Activations**
-  - [x] **Normalization layers**(XavierLin)
+  - [x] Non-linear Activations
+  - [x] Normalization layers(*XavierLin*)
   - [x] Recurrent layers(*KeithYin*)
   - [ ] **Linear layers**
   - [ ] **Dropout layers**
