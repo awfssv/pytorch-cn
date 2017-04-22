@@ -46,7 +46,7 @@
   - [ ] **Dropout functions**
   - [ ] **Distance functions**(飞彦)
   - [ ] **Loss functions**(飞彦)
-  - [ ] **Vision functions**(KeithYin)
+  - [x] Vision functions(KeithYin)
 - [x] torch.nn.init(*kophy*)
 - [ ] **torch.optim**(邓梓君)
 - [x] torch.autograd(*KeithYin*)
