@@ -341,8 +341,10 @@ $$
 ```
 
 ## 损失函数（Loss functions）
-### torch.nn.functional.nll_loss(input, target, weight=None, size_average=True)
 
+```python
+torch.nn.functional.nll_loss(input, target, weight=None, size_average=True)
+```
 负对数似然损失
 
 详细请看[NLLLoss](...).
