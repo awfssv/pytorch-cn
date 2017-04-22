@@ -347,21 +347,21 @@ torch.nn.functional.nll_loss(input, target, weight=None, size_average=True)
 ```
 负对数似然损失. 详细请看[NLLLoss](...).
 
-**参数: **
+**参数：**
 - input - (N,C) 其中，C 是类别的个数
 - target - (N) 其大小是 0 <= targets[i] <= C-1
 - weight (Variable, optional) – 可以调整每一个类别的权重, 其必须是一个“nclasses” 大小的 Variable
-- size_average (bool, optional) – 默认情况下，损失超过平均每个minibatch观测. 然而, 如果将size_average设置为false，损失就不是每个minibatch的和
+- size_average (bool, optional) – 默认情况下，损失超过平均每个minibatch观测，然而, 如果将size_average设置为false，损失就不是每个minibatch的和
 
 **Variables:**
-- weight – 对于constructor而言，每一类的权重作为输入. 
+- weight – 对于constructor而言，每一类的权重作为输入
 
 ```python
 torch.nn.functional.kl_div(input, target, size_average=True)
 ```
-Kullback-Leibler divergence损失. 详细请看[KLDivLoss](...).
+Kullback-Leibler divergence损失，详细请看[KLDivLoss](...)
 
-**参数:**	
+**参数：**	
 - input – 任意形状的 Variable
 - target – 与输入相同形状的 Variable
 - size_average – 如果为真，输出将会按照输入tensor的元素分离
@@ -369,20 +369,20 @@ Kullback-Leibler divergence损失. 详细请看[KLDivLoss](...).
 ```python
 torch.nn.functional.cross_entropy(input, target, weight=None, size_average=True)
 ```
-该规则结合了 og_softmax 和 nll_loss. 详细请看[CrossEntropyLoss](...).
+该规则结合了 og_softmax 和 nll_loss，详细请看[CrossEntropyLoss](...)
 
-**参数:**	
+**参数：**	
 - input - (N,C) 其中，C 是类别的个数
 - target - (N) 其大小是 0 <= targets[i] <= C-1
 - weight (Variable, optional) – 可以调整每一个类别的权重, 其必须是一个“nclasses” 大小的 Variable
-- size_average (bool, optional) – 默认情况下，损失超过平均每个minibatch观测. 然而, 如果将size_average设置为false，损失就不是每个minibatch的和
+- size_average (bool, optional) – 默认情况下，损失超过平均每个minibatch观测，然而, 如果将size_average设置为false，损失就不是每个minibatch的和
 
 ```python
 torch.nn.functional.binary_cross_entropy(input, target, weight=None, size_average=True)
 ```
-该函数计算了输出与target之间的二进制交叉熵: 详细请看[BCELoss](...).
+该函数计算了输出与target之间的二进制交叉熵，详细请看[BCELoss](...)
 
-**参数:**	
+**参数：**	
 - input – 任意形状的 Variable
 - target – 与输入相同形状的 Variable
 - weight (Variable, optional) – 可以调整每一个类别的权重, 其必须是一个“nclasses” 大小的 Variable
