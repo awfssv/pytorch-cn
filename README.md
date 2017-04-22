@@ -27,7 +27,7 @@
   - [ ] **Convolution Layers**(吴锦林)
   - [ ] **Pooling Layers**(吴锦林)
   - [ ] **Non-linear Activations**
-  - [ ] **Normalization layers**
+  - [x] **Normalization layers**(XavierLin)
   - [x] Recurrent layers(*KeithYin*)
   - [ ] **Linear layers**
   - [ ] **Dropout layers**
