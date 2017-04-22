@@ -339,6 +339,10 @@ $$
 >>> output = F.pairwise_distance(input1, input2, p=2)
 >>> output.backward()
 ```
+----------------------------------------------------------------------------------------------------
+## 损失函数（Loss functions）
+### torch.nn.functional.nll_loss(input, target, weight=None, size_average=True)
+
 
 ## Vision functions
 ### torch.nn.functional.pixel_shuffle(input, upscale_factor)[source]
@@ -376,3 +380,5 @@ Currently only 2D and 3D padding supported.
 - mode – ‘constant’, ‘reflect’ or ‘replicate’
 
 - value – 用于`constant padding` 的值.
+
+
