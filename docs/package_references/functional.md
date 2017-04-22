@@ -364,7 +364,7 @@ Kullback-Leibler divergence损失，详细请看[KLDivLoss](...)
 **参数：**	
 - **input** – 任意形状的 Variable
 - **target** – 与输入相同形状的 Variable
-- **size_average** – 如果TRUE，输出则需要除以输入张量中元素的数目
+- **size_average** – 如果为TRUE，输出则需要除以输入张量中元素的数目
 
 ```python
 torch.nn.functional.cross_entropy(input, target, weight=None, size_average=True)
