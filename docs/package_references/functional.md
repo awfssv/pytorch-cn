@@ -339,10 +339,22 @@ $$
 >>> output = F.pairwise_distance(input1, input2, p=2)
 >>> output.backward()
 ```
-----------------------------------------------------------------------------------------------------
+
 ## 损失函数（Loss functions）
 ### torch.nn.functional.nll_loss(input, target, weight=None, size_average=True)
 
+负对数似然损失
+
+详细请看[NLLLoss](...).
+
+形参说明：
+- input - (N,C) 其中，C 是类别的个数
+- target - (N) 其大小是 0 <= targets[i] <= C-1
+- weight (Variable, optional) – 可以调整每一个类别的权重, 其必须是一个“nclasses” 大小的 Variable.
+- size_average (bool, optional) – 默认情况下，损失超过平均每个minibatch观测. 然而, 如果将size_average设置为false，损失就不是每个minibatch的和.
+
+Variables:
+- weight – 对于constructor而言，每一类的权重作为输入. 
 
 ## Vision functions
 ### torch.nn.functional.pixel_shuffle(input, upscale_factor)[source]
