@@ -12,7 +12,7 @@ shape：
 
  - 输入：$(N, *)$，*代表任意数目附加维度
  - 输出：$(N, *)$，与输入拥有同样的shape属性
-    
+
 例子：
 
 ```python
@@ -32,7 +32,7 @@ shape：
 
  - 输入：$(N, *)$，*代表任意数目附加维度
  - 输出：$(N, *)$，与输入拥有同样的shape属性
-    
+
 例子：
 
 ```python
@@ -49,7 +49,7 @@ shape：
 
  - 输入：$(N, *)$，星号代表任意数目附加维度
  - 输出：$(N, *)$与输入拥有同样的shape属性
-    
+
 例子：
 
 ```python
@@ -73,7 +73,7 @@ shape：
 
  - 输入：$(N, *)$，*代表任意数目附加维度
  - 输出：$(N, *)$，与输入拥有同样的shape属性
-    
+
 例子：
 
 ```python
@@ -95,7 +95,7 @@ shape：
 
  - 输入：$(N, *)$，*代表任意数目附加维度
  - 输出：$(N, *)$，与输入拥有同样的shape属性
-    
+
 例子：
 
 ```python
@@ -125,7 +125,7 @@ shape：
 
  - 输入：$(N, *)$，*代表任意数目附加维度
  - 输出：$(N, *)$，与输入拥有同样的shape属性
-    
+
 例子：
 
 ```python
@@ -156,7 +156,7 @@ shape：
 
  - 输入：(N, \*)，*表示任意维度组合
  - 输出：(N, *)，与输入有相同的shape属性
-    
+
 例子：
 
 ```python
@@ -175,7 +175,7 @@ shape：
 
  - 输入：(N, \*)，*表示任意维度组合
  - 输出：(N, *)，与输入有相同的shape属性
-    
+
 例子：
 
 ```python
@@ -194,7 +194,7 @@ shape：
 
 - 输入：(N, \*)，*表示任意维度组合
 - 输出：(N, *)，与输入有相同的shape属性
-    
+
 例子：
 
 ```python
@@ -211,7 +211,7 @@ shape：
 
 - 输入：(N, \*)，*表示任意维度组合
 - 输出：(N, *)，与输入有相同的shape属性
-    
+
 例子：
 
 ```python
@@ -239,7 +239,7 @@ shape：
 
 - 输入：(N, \*)，*表示任意维度组合
 - 输出：(N, *)，与输入有相同的shape属性
-    
+
 例子：
 
 ```python
@@ -266,7 +266,7 @@ shape：
 
  - 输入：(N, \*)，*表示任意维度组合
  - 输出：(N, *)，与输入有相同的shape属性
-    
+
 例子：
 
 ```python
@@ -283,7 +283,7 @@ shape：
 
  - 输入：(N, \*)，*表示任意维度组合
  - 输出：(N, *)，与输入有相同的shape属性
-    
+
 例子：
 
 ```python
@@ -305,7 +305,7 @@ shape：
 
  - 输入：(N, \*)，*表示任意维度组合
  - 输出：(N, *)，与输入有相同的shape属性
-    
+
 例子：
 
 ```python
@@ -324,7 +324,7 @@ shape：
 
  - 输入：(N, L)
  - 输出：(N, L)
-    
+
 例子：
 
 ```python
@@ -369,7 +369,7 @@ shape：
 
  - 输入：(N, L)
  - 输出：(N, L)
-    
+
 例子：
 
 ```python
@@ -842,7 +842,7 @@ criterion = LossCriterion() #构造函数有自己的参数
 loss = criterion(x, y) #调用标准时也有参数
 ```
 计算出来的结果已经对`mini-batch`取了平均。
-### class torch.nn.L1Loss(size_average=True)[source]
+### class torch.nn.L1Loss(size_average=True)[<font size=2>[source]</font>](http://pytorch.org/docs/_modules/torch/nn/modules/loss.html#L1Loss)
 创建一个衡量输入`x`(`模型预测输出`)和目标`y`之间差的绝对值的平均值的标准。
 $$
 loss(x,y)=1/n\sum|x_i-y_i|
@@ -855,7 +855,7 @@ $$
 - 如果在创建`L1Loss`实例的时候在构造函数中传入`size_average=False`，那么求出来的绝对值的和将不会除以`n`
 
 
-### class torch.nn.MSELoss(size_average=True)[source]
+### class torch.nn.MSELoss(size_average=True)[<font size=2>[source]</font>](http://pytorch.org/docs/_modules/torch/nn/modules/loss.html#MSELoss)
 创建一个衡量输入`x`(`模型预测输出`)和目标`y`之间均方误差标准。
 $$
 loss(x,y)=1/n\sum(x_i-y_i)^2
@@ -867,7 +867,7 @@ $$
 
 - 如果在创建`MSELoss`实例的时候在构造函数中传入`size_average=False`，那么求出来的平方和将不会除以`n`
 
-### class torch.nn.CrossEntropyLoss(weight=None, size_average=True)[source]
+### class torch.nn.CrossEntropyLoss(weight=None, size_average=True)[<font size=2>[source]</font>](http://pytorch.org/docs/_modules/torch/nn/modules/loss.html#CrossEntropyLoss)
 此标准将`LogSoftMax`和`NLLLoss`集成到一个类中。
 
 当训练一个多类分类器的时候，这个方法是十分有用的。
@@ -900,7 +900,7 @@ $$
 
 - Target: (N) `N`是`mini-batch`的大小，0 <= targets[i] <= C-1
 
-### class torch.nn.NLLLoss(weight=None, size_average=True)[source]
+### class torch.nn.NLLLoss(weight=None, size_average=True)[<font size=2>[source]</font>](http://pytorch.org/docs/_modules/torch/nn/modules/loss.html#NLLLoss)
 负的`log likelihood loss`损失。用于训练一个`n`类分类器。
 
 如果提供的话，`weight`参数应该是一个`1-D`tensor，里面的值对应类别的权重。当你的训练集样本不均衡的话，使用这个参数是非常有用的。
@@ -945,7 +945,7 @@ $$
  output.backward()
 ```
 
-### class torch.nn.NLLLoss2d(weight=None, size_average=True)[source]
+### class torch.nn.NLLLoss2d(weight=None, size_average=True)[<font size=2>[source]</font>](http://pytorch.org/docs/_modules/torch/nn/modules/loss.html#NLLLoss2d)
 
 对于图片的 `negative log likehood loss`。计算每个像素的 `NLL loss`。
 
@@ -972,7 +972,7 @@ $$
  output = loss(m(input), target)
  output.backward()
 ```
-### class torch.nn.KLDivLoss(weight=None, size_average=True)[source]
+### class torch.nn.KLDivLoss(weight=None, size_average=True)[<font size=2>[source]</font>](http://pytorch.org/docs/_modules/torch/nn/modules/loss.html#KLDivLoss)
 
 计算 KL 散度损失。
 
@@ -988,7 +988,7 @@ loss(x,target)=\frac{1}{n}\sum_i(target_i*(log(target_i)-x_i))
 $$
 默认情况下，loss会基于`element`求平均。如果 `size_average=False` `loss` 会被累加起来。
 
-### class torch.nn.BCELoss(weight=None, size_average=True)[source]
+### class torch.nn.BCELoss(weight=None, size_average=True)[<font size=2>[source]</font>](http://pytorch.org/docs/_modules/torch/nn/modules/loss.html#BCELoss)
 
 计算 `target` 与 `output` 之间的二进制交叉熵。
 $$
@@ -1003,7 +1003,7 @@ $$
 
 默认情况下，loss会基于`element`平均，如果`size_average=False`的话，`loss`会被累加。
 
-### class torch.nn.MarginRankingLoss(margin=0, size_average=True)[source]
+### class torch.nn.MarginRankingLoss(margin=0, size_average=True)[<font size=2>[source]</font>](http://pytorch.org/docs/_modules/torch/nn/modules/loss.html#MarginRankingLoss)
 
 创建一个标准，给定输入 $x1$,$x2$两个1-D mini-batch Tensor's，和一个$y$(1-D mini-batch tensor) ,$y$里面的值只能是-1或1。
 
@@ -1015,7 +1015,7 @@ $$loss(x, y) = max(0, -y * (x1 - x2) + margin)$$
 
 如果`size_average=True`,那么求出的`loss`将会对`mini-batch`求平均，反之，求出的`loss`会累加。默认情况下，`size_average=True`。
 
-### class torch.nn.HingeEmbeddingLoss(size_average=True)[source]
+### class torch.nn.HingeEmbeddingLoss(size_average=True)[<font size=2>[source]</font>](http://pytorch.org/docs/_modules/torch/nn/modules/loss.html#HingeEmbeddingLoss)
 
 给定一个输入 $x$(2-D mini-batch tensor)和对应的 标签 $y$ (1-D tensor,1,-1)，此函数用来计算之间的损失值。这个`loss`通常用来测量两个输入是否相似，即：使用L1 成对距离。典型是用在学习非线性 `embedding`或者半监督学习中：
 
@@ -1030,7 +1030,7 @@ $x$和$y$可以是任意形状，且都有`n`的元素，`loss`的求和操作�
 
 `margin`的默认值为1,可以通过构造函数来设置。
 
-### class torch.nn.MultiLabelMarginLoss(size_average=True)[source]
+### class torch.nn.MultiLabelMarginLoss(size_average=True)[<font size=2>[source]</font>](http://pytorch.org/docs/_modules/torch/nn/modules/loss.html#MultiLabelMarginLoss)
 计算多标签分类的 `hinge loss`(`margin-based loss`) ，计算`loss`时需要两个输入： input x(`2-D mini-batch Tensor`)，和 output y(`2-D tensor`表示mini-batch中样本类别的索引)。
 
 $$
@@ -1043,7 +1043,7 @@ $$
 这个标准仅考虑了第一个非零 `y[j] targets`
 此标准允许了，对于每个样本来说，可以有多个类别。
 
-### class torch.nn.SmoothL1Loss(size_average=True)[source]
+### class torch.nn.SmoothL1Loss(size_average=True)[<font size=2>[source]</font>](http://pytorch.org/docs/_modules/torch/nn/modules/loss.html#SmoothL1Loss)
 平滑版`L1 loss`。
 
 loss的公式如下：
@@ -1058,7 +1058,7 @@ $$
 
 x 和 y 可以是任何包含`n`个元素的tensor。默认情况下，求出来的`loss`会除以`n`，可以通过设置`size_average=True`使loss累加。
 
-### class torch.nn.SoftMarginLoss(size_average=True)[source]
+### class torch.nn.SoftMarginLoss(size_average=True)[<font size=2>[source]</font>](http://pytorch.org/docs/_modules/torch/nn/modules/loss.html#SoftMarginLoss)
 
 创建一个标准，用来优化2分类的`logistic loss`。输入为 `x`（一个 2-D mini-batch Tensor）和 目标`y`（一个包含1或-1的Tensor）。
 $$
@@ -1066,7 +1066,7 @@ loss(x, y) = \frac{1}{x.nelement()}\sum_i (log(1 + exp(-y[i]* x[i])))
 $$
 如果求出的`loss`不想被平均可以通过设置`size_average=False`。
 
-### class torch.nn.MultiLabelSoftMarginLoss(weight=None, size_average=True)[source]
+### class torch.nn.MultiLabelSoftMarginLoss(weight=None, size_average=True)[<font size=2>[source]</font>](http://pytorch.org/docs/_modules/torch/nn/modules/loss.html#MultiLabelSoftMarginLoss)
 
 创建一个标准，基于输入x和目标y的 `max-entropy`，优化多标签 `one-versus-all` 的损失。`x`:2-D mini-batch Tensor;`y`:binary 2D Tensor。对每个mini-batch中的样本，对应的loss为：
 $$
@@ -1075,7 +1075,7 @@ loss(x, y) = - \frac{1}{x.nElement()}\sum_{i=0}^I y[i]\text{log}\frac{exp(x[i])}
 $$
 其中 `I=x.nElement()-1`, $y[i] \in \{0,1\}$，`y` 和 `x`必须要有同样`size`。
 
-### class torch.nn.CosineEmbeddingLoss(margin=0, size_average=True)[source]
+### class torch.nn.CosineEmbeddingLoss(margin=0, size_average=True)[<font size=2>[source]</font>](http://pytorch.org/docs/_modules/torch/nn/modules/loss.html#CosineEmbeddingLoss)
 
 给定 输入 `Tensors`，`x1`, `x2` 和一个标签Tensor `y`(元素的值为1或-1)。此标准使用`cosine`距离测量两个输入是否相似，一般用来用来学习非线性`embedding`或者半监督学习。
 
@@ -1091,7 +1091,7 @@ max(0, cos(x1, x2) - margin), &if~y == -1
 $$
 如果`size_average=True` 求出的loss会对batch求均值，如果`size_average=False`的话，则会累加`loss`。默认情况`size_average=True`。
 
-### class torch.nn.MultiMarginLoss(p=1, margin=1, weight=None, size_average=True)[source]
+### class torch.nn.MultiMarginLoss(p=1, margin=1, weight=None, size_average=True)[<font size=2>[source]</font>](http://pytorch.org/docs/_modules/torch/nn/modules/loss.html#MultiMarginLoss)
 用来计算multi-class classification的hinge loss（magin-based loss）。输入是 `x`(2D mini-batch Tensor), `y`(1D Tensor)包含类别的索引， `0 <= y <= x.size(1))`。
 
 对每个mini-batch样本：
@@ -1109,7 +1109,7 @@ $$
 
 ## Vision layers
 
-### class torch.nn.PixelShuffle(upscale_factor)[source]
+### class torch.nn.PixelShuffle(upscale_factor)[<font size=2>[source]</font>](http://pytorch.org/docs/_modules/torch/nn/modules/pixelshuffle.html#PixelShuffle)
 
 将shape为$[N, C*r^2, H, W]$的`Tensor`重新排列为shape为$[N, C, H*r, W*r]$的Tensor。
 当使用`stride=1/r` 的sub-pixel卷积的时候，这个方法是非常有用的。
@@ -1136,7 +1136,7 @@ torch.Size([1, 1, 12, 12])
 ```
 
 
-### class torch.nn.UpsamplingNearest2d(size=None, scale_factor=None)[source]
+### class torch.nn.UpsamplingNearest2d(size=None, scale_factor=None)[<font size=2>[source]</font>](http://pytorch.org/docs/_modules/torch/nn/modules/upsampling.html#UpsamplingNearest2d)
 
 对于多channel 输入 进行 `2-D` 最近邻上采样。
 
@@ -1174,7 +1174,7 @@ Variable containing:
 [torch.FloatTensor of size 1x1x4x4]
 ```
 
-### class torch.nn.UpsamplingBilinear2d(size=None, scale_factor=None)[source]
+### class torch.nn.UpsamplingBilinear2d(size=None, scale_factor=None)[<font size=2>[source]</font>](http://pytorch.org/docs/_modules/torch/nn/modules/upsampling.html#UpsamplingBilinear2d)
 
 对于多channel 输入 进行 `2-D` `bilinear` 上采样。
 
@@ -1212,7 +1212,7 @@ Variable containing:
 [torch.FloatTensor of size 1x1x4x4]
 ```
 ## Multi-GPU layers
-### class torch.nn.DataParallel(module, device_ids=None, output_device=None, dim=0)[source]
+### class torch.nn.DataParallel(module, device_ids=None, output_device=None, dim=0)[<font size=2>[source]</font>](http://pytorch.org/docs/_modules/torch/nn/parallel/data_parallel.html#DataParallel)
 
 在模块级别上实现数据并行。
 
@@ -1238,7 +1238,7 @@ batch的大小应该大于所使用的GPU的数量。还应当是GPU个数的整
 
 ## Utilities
 工具函数
-### torch.nn.utils.clip_grad_norm(parameters, max_norm, norm_type=2)[source]
+### torch.nn.utils.clip_grad_norm(parameters, max_norm, norm_type=2)[<font size=2>[source]</font>](http://pytorch.org/docs/_modules/torch/nn/utils/clip_grad.html#clip_grad_norm)
 Clips gradient norm of an iterable of parameters.
 
 正则項的值由所有的梯度计算出来，就像他们连成一个向量一样。梯度被`in-place operation`修改。
@@ -1254,7 +1254,7 @@ Clips gradient norm of an iterable of parameters.
 
 所有参数的p-norm值。
 
-### torch.nn.utils.rnn.PackedSequence(\_cls, data, batch_sizes)[source]
+### torch.nn.utils.rnn.PackedSequence(\_cls, data, batch_sizes)[<font size=2>[source]</font>](http://pytorch.org/docs/_modules/torch/nn/utils/rnn.html#PackedSequence)
 Holds the data and list of batch_sizes of a packed sequence.
 
 All RNN modules accept packed sequences as inputs.
@@ -1269,9 +1269,10 @@ All RNN modules accept packed sequences as inputs.
 
 - batch_sizes (list[int]) – 包含 `mini-batch` 中每个序列长度的列表。
 
-#### torch.nn.utils.rnn.pack_padded_sequence(input, lengths, batch_first=False)[source]
-Packs a Variable containing padded sequences of variable length.
-把一个包含 填充过的变长序列 `Variable`打包。
+### torch.nn.utils.rnn.pack_padded_sequence(input, lengths, batch_first=False)[<font size=2>[source]</font>](http://pytorch.org/docs/_modules/torch/nn/utils/rnn.html#PackedSequence)
+
+这里的`pack`，理解成压紧比较好。
+将一个 填充过的变长序列 压紧。（填充时候，会有冗余，所以压紧一下）
 
 输入的形状可以是(T×B×* )。`T`是最长序列长度，`B`是`batch size`，`*`代表任意维度(可以是0)。如果`batch_first=True`的话，那么相应的 `input size` 就是 `(B×T×*)`。
 
@@ -1292,11 +1293,11 @@ Packs a Variable containing padded sequences of variable length.
 
 一个`PackedSequence` 对象。
 
-### torch.nn.utils.rnn.pad_packed_sequence(sequence, batch_first=False)[source]
+### torch.nn.utils.rnn.pad_packed_sequence(sequence, batch_first=False)[<font size=2>[source]</font>](http://pytorch.org/docs/_modules/torch/nn/utils/rnn.html#pack_padded_sequence)
 
-填充变长序列的打包的batch
-Pads a packed batch of variable length sequences.
-这个操作和pack_padded_sequence()是相反的。
+填充`packed_sequence`。
+
+上面提到的函数的功能是将一个填充后的变长序列压紧。 这个操作和pack_padded_sequence()是相反的。把压紧的序列再填充回来。
 
 返回的Varaible的值的`size`是 `T×B×*`, `T` 是最长序列的长度，`B` 是 batch_size,如果 `batch_first=True`,那么返回值是`B×T×*`。
 
@@ -1311,3 +1312,35 @@ Batch中的元素将会以它们长度的逆序排列。
 
 返回值:
 一个tuple，包含被填充后的序列，和batch中序列的长度列表。
+
+例子：
+```python
+import torch
+import torch.nn as nn
+from torch.autograd import Variable
+from torch.nn import utils as nn_utils
+batch_size = 2
+max_length = 3
+hidden_size = 2
+n_layers =1
+
+tensor_in = torch.FloatTensor([[1, 2, 3], [1, 0, 0]]).resize_(2,3,1)
+tensor_in = Variable( tensor_in ) #[batch, seq, feature], [2, 3, 1]
+seq_lengths = [3,1] # list of integers holding information about the batch size at each sequence step
+
+# pack it
+pack = nn_utils.rnn.pack_padded_sequence(tensor_in, seq_lengths, batch_first=True)
+
+# initialize
+rnn = nn.RNN(1, hidden_size, n_layers, batch_first=True)
+h0 = Variable(torch.randn(n_layers, batch_size, hidden_size))
+
+#forward
+out, _ = rnn(pack, h0)
+
+# unpack
+unpacked = nn_utils.rnn.pad_packed_sequence(out)
+print(unpacked)
+```
+
+[关于packed_sequence](https://discuss.pytorch.org/t/how-can-i-compute-seq2seq-loss-using-mask/861)
