@@ -22,8 +22,8 @@
 - [ ] **torch.Tensor**(魏国强)
 - [x] torch.Storage(*kophy*)
 - [ ] **torch.nn**
-  - [ ] **Parameters**
-  - [ ] **Containers**
+  - [x] Parameters(*KeithYin*)
+  - [x] Containers(*KeithYin*)
   - [ ] **Convolution Layers**(吴锦林)
   - [ ] **Pooling Layers**(吴锦林)
   - [x] Non-linear Activations
