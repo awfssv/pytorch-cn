@@ -430,5 +430,3 @@ Currently only 2D and 3D padding supported.
 - mode – ‘constant’, ‘reflect’ or ‘replicate’
 
 - value – 用于`constant padding` 的值.
-
-
