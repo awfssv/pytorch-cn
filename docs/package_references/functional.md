@@ -351,7 +351,7 @@ torch.nn.functional.nll_loss(input, target, weight=None, size_average=True)
 - **input** - (N,C) C 是类别的个数
 - **target** - (N) 其大小是 0 <= targets[i] <= C-1
 - **weight** (Variable, optional) – 一个相应类别可调整的权重, 其必须是一个“nclasses” 大小的 Variable
-- **size_average** (bool, optional) – 默认情况下，是mini-batch``loss的平均值，然而，如果size_average=False，则是mini-batch``loss的总和。
+- **size_average** (bool, optional) – 默认情况下，是``mini-batch``loss的平均值，然而，如果size_average=False，则是``mini-batch``loss的总和。
 
 
 **Variables:**
@@ -376,7 +376,7 @@ torch.nn.functional.cross_entropy(input, target, weight=None, size_average=True)
 - **input** - (N,C) 其中，C 是类别的个数
 - **target** - (N) 其大小是 0 <= targets[i] <= C-1
 - **weight** (Variable, optional) – 一个相应类别可调整的权重, 其必须是一个“nclasses” 大小的 Variable
-- **size_average** (bool, optional) – 默认情况下，是mini-batch``loss的平均值，然而，如果size_average=False，则是mini-batch``loss的总和。
+- **size_average** (bool, optional) – 默认情况下，是``mini-batch``loss的平均值，然而，如果size_average=False，则是``mini-batch``loss的总和。
 
 ```python
 torch.nn.functional.binary_cross_entropy(input, target, weight=None, size_average=True)
@@ -387,7 +387,7 @@ torch.nn.functional.binary_cross_entropy(input, target, weight=None, size_averag
 - **input** – 任意形状的 Variable
 - **target** – 与输入相同形状的 Variable
 - **weight** (Variable, optional) – 一个相应类别可调整的权重, 其必须是一个“nclasses” 大小的 Variable
-- **size_average** (bool, optional) – 默认情况下，是mini-batch``loss的平均值，然而，如果size_average=False，则是mini-batch``loss的总和。
+- **size_average** (bool, optional) – 默认情况下，是``mini-batch``loss的平均值，然而，如果size_average=False，则是``mini-batch``loss的总和。
 
 ```python
 torch.nn.functional.smooth_l1_loss(input, target, size_average=True)
