@@ -345,7 +345,7 @@ $$
 ```python
 torch.nn.functional.nll_loss(input, target, weight=None, size_average=True)
 ```
-负的log likelihood loss损失函数. 详细请看[NLLLoss](...).
+负的log likelihood损失函数. 详细请看[NLLLoss](...).
 
 **参数：**
 - **input** - (N,C) C 是类别的个数
