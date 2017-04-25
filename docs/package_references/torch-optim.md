@@ -88,7 +88,7 @@ Base class for all optimizers.
 
 **参数：**
 
-state_dict (dict) —— optimizer的状态。应当是一个调用`state_dict()`所返回的对象。
+state_dict (`dict`) —— optimizer的状态。应当是一个调用`state_dict()`所返回的对象。
 
 #### state_dict() [source]
 以`dict`返回optimizer的状态。
@@ -103,7 +103,7 @@ state_dict (dict) —— optimizer的状态。应当是一个调用`state_dict()
 
 **参数：**
 
-* closure (callable) – 一个重新评价模型并返回loss的闭包，对于大多数参数来说是可选的。
+* closure (`callable`) – 一个重新评价模型并返回loss的闭包，对于大多数参数来说是可选的。
 
 #### zero_grad() [source]
 清空所有被优化过的Variable的梯度.
@@ -116,17 +116,17 @@ state_dict (dict) —— optimizer的状态。应当是一个调用`state_dict()
 **参数：**
 
 * params (iterable) – 待优化参数的iterable或者是定义了参数组的dict
-* rho (float, 可选) – 用于计算平方梯度的运行平均值的系数（默认：0.9）
-* eps (float, 可选) – 为了增加数值计算的稳定性而加到分母里的项（默认：1e-6）
-* lr (float, 可选) – 在delta被应用到参数更新之前对它缩放的系数（默认：1.0）
-* weight_decay (float, 可选) – 权重衰减（L2惩罚）（默认: 0）
+* rho (`float`, 可选) – 用于计算平方梯度的运行平均值的系数（默认：0.9）
+* eps (`float`, 可选) – 为了增加数值计算的稳定性而加到分母里的项（默认：1e-6）
+* lr (`float`, 可选) – 在delta被应用到参数更新之前对它缩放的系数（默认：1.0）
+* weight_decay (`float`, 可选) – 权重衰减（L2惩罚）（默认: 0）
 
 #### step(closure) [source]
 进行单次优化 (参数更新).
 
 **参数：**
 
-* closure (callable) – 一个重新评价模型并返回loss的闭包，对于大多数参数来说是可选的。
+* closure (`callable`) – 一个重新评价模型并返回loss的闭包，对于大多数参数来说是可选的。
 
 ### class torch.optim.Adagrad(params, lr=0.01, lr_decay=0, weight_decay=0)[source]
 实现Adagrad算法。
@@ -137,16 +137,16 @@ http://jmlr.org/papers/v12/duchi11a.html)中被提出。
 **参数：**
 
 * params (iterable) – 待优化参数的iterable或者是定义了参数组的dict
-* lr (float, 可选) – 学习率（默认: 1e-2）
-* lr_decay (float, 可选) – 学习率衰减（默认: 0）
-* weight_decay (float, 可选) – 权重衰减（L2惩罚）（默认: 0）
+* lr (`float`, 可选) – 学习率（默认: 1e-2）
+* lr_decay (`float`, 可选) – 学习率衰减（默认: 0）
+* weight_decay (`float`, 可选) – 权重衰减（L2惩罚）（默认: 0）
 
 #### step(closure) [source]
 进行单次优化 (参数更新).
 
 **参数：**
 
-* closure (callable) – 一个重新评价模型并返回loss的闭包，对于大多数参数来说是可选的。
+* closure (`callable`) – 一个重新评价模型并返回loss的闭包，对于大多数参数来说是可选的。
 
 ### class torch.optim.Adam(params, lr=0.001, betas=(0.9, 0.999), eps=1e-08, weight_decay=0)[source]
 实现Adam算法。
@@ -156,17 +156,17 @@ http://jmlr.org/papers/v12/duchi11a.html)中被提出。
 **参数：**
 
 * params (iterable) – 待优化参数的iterable或者是定义了参数组的dict
-* lr (float, 可选) – 学习率（默认：1e-3）
-* betas (Tuple[float, float], 可选) – 用于计算梯度以及梯度平方的运行平均值的系数（默认：0.9，0.999）
-* eps (float, 可选) – 为了增加数值计算的稳定性而加到分母里的项（默认：1e-8）
-* weight_decay (float, 可选) – 权重衰减（L2惩罚）（默认: 0）
+* lr (`float`, 可选) – 学习率（默认：1e-3）
+* betas (Tuple[`float`, `float`], 可选) – 用于计算梯度以及梯度平方的运行平均值的系数（默认：0.9，0.999）
+* eps (`float`, 可选) – 为了增加数值计算的稳定性而加到分母里的项（默认：1e-8）
+* weight_decay (`float`, 可选) – 权重衰减（L2惩罚）（默认: 0）
 
 #### step(closure) [source]
 进行单次优化 (参数更新).
 
 **参数：**
 
-* closure (callable) – 一个重新评价模型并返回loss的闭包，对于大多数参数来说是可选的。
+* closure (`callable`) – 一个重新评价模型并返回loss的闭包，对于大多数参数来说是可选的。
 
 ### class torch.optim.Adamax(params, lr=0.002, betas=(0.9, 0.999), eps=1e-08, weight_decay=0)[source]
 实现Adamax算法（Adam的一种基于无穷范数的变种）。
@@ -176,17 +176,17 @@ http://jmlr.org/papers/v12/duchi11a.html)中被提出。
 **参数：**
 
 * params (iterable) – 待优化参数的iterable或者是定义了参数组的dict
-* lr (float, 可选) – 学习率（默认：2e-3）
-* betas (Tuple[float, float], 可选) – 用于计算梯度以及梯度平方的运行平均值的系数
-* eps (float, 可选) – 为了增加数值计算的稳定性而加到分母里的项（默认：1e-8）
-* weight_decay (float, 可选) – 权重衰减（L2惩罚）（默认: 0）
+* lr (`float`, 可选) – 学习率（默认：2e-3）
+* betas (Tuple[`float`, `float`], 可选) – 用于计算梯度以及梯度平方的运行平均值的系数
+* eps (`float`, 可选) – 为了增加数值计算的稳定性而加到分母里的项（默认：1e-8）
+* weight_decay (`float`, 可选) – 权重衰减（L2惩罚）（默认: 0）
 
 #### step(closure) [source]
 进行单次优化 (参数更新).
 
 **参数：**
 
-* closure (callable) – 一个重新评价模型并返回loss的闭包，对于大多数参数来说是可选的。
+* closure (`callable`) – 一个重新评价模型并返回loss的闭包，对于大多数参数来说是可选的。
 
 ### class torch.optim.ASGD(params, lr=0.01, lambd=0.0001, alpha=0.75, t0=1000000.0, weight_decay=0)[source]
 实现平均随机梯度下降算法。
@@ -196,18 +196,18 @@ http://jmlr.org/papers/v12/duchi11a.html)中被提出。
 **参数：**
 
 * params (iterable) – 待优化参数的iterable或者是定义了参数组的dict
-* lr (float, 可选) – 学习率（默认：1e-2）
-* lambd (float, 可选) – 衰减项（默认：1e-4）
-* alpha (float, 可选) – eta更新的指数（默认：0.75）
-* t0 (float, 可选) – 指明在哪一次开始平均化（默认：1e6）
-* weight_decay (float, 可选) – 权重衰减（L2惩罚）（默认: 0）
+* lr (`float`, 可选) – 学习率（默认：1e-2）
+* lambd (`float`, 可选) – 衰减项（默认：1e-4）
+* alpha (`float`, 可选) – eta更新的指数（默认：0.75）
+* t0 (`float`, 可选) – 指明在哪一次开始平均化（默认：1e6）
+* weight_decay (`float`, 可选) – 权重衰减（L2惩罚）（默认: 0）
 
 #### step(closure) [source]
 进行单次优化 (参数更新).
 
 **参数：**
 
-* closure (callable) – 一个重新评价模型并返回loss的闭包，对于大多数参数来说是可选的。
+* closure (`callable`) – 一个重新评价模型并返回loss的闭包，对于大多数参数来说是可选的。
 
 ### class torch.optim.LBFGS(params, lr=1, max_iter=20, max_eval=None, tolerance_grad=1e-05, tolerance_change=1e-09, history_size=100, line_search_fn=None)[source]
 实现L-BFGS算法。
@@ -223,76 +223,76 @@ http://jmlr.org/papers/v12/duchi11a.html)中被提出。
 
 **参数：**
 
-* lr (float) – 学习率（默认：1）
-* max_iter (int) – 每一步优化的最大迭代次数（默认：20）)
-* max_eval (int) – 每一步优化的最大函数评价次数（默认：max * 1.25）
-* tolerance_grad (float) – 一阶最优的终止容忍度（默认：1e-5）
-* tolerance_change (float) – 在函数值/参数变化量上的终止容忍度（默认：1e-9）
-* history_size (int) – 更新历史的大小（默认：100）
+* lr (`float`) – 学习率（默认：1）
+* max_iter (`int`) – 每一步优化的最大迭代次数（默认：20）)
+* max_eval (`int`) – 每一步优化的最大函数评价次数（默认：max * 1.25）
+* tolerance_grad (`float`) – 一阶最优的终止容忍度（默认：1e-5）
+* tolerance_change (`float`) – 在函数值/参数变化量上的终止容忍度（默认：1e-9）
+* history_size (`int`) – 更新历史的大小（默认：100）
 
 #### step(closure) [source]
 进行单次优化 (参数更新).
 
 **参数：**
 
-* closure (callable) – 一个重新评价模型并返回loss的闭包，对于大多数参数来说是可选的。
+* closure (`callable`) – 一个重新评价模型并返回loss的闭包，对于大多数参数来说是可选的。
 
 ### class torch.optim.RMSprop(params, lr=0.01, alpha=0.99, eps=1e-08, weight_decay=0, momentum=0, centered=False)[source]
 实现RMSprop算法。
 
-Proposed by G. Hinton in his [course](http://www.cs.toronto.edu/~tijmen/csc321/slides/lecture_slides_lec6.pdf).
+由G. H`int`on在他的[课程](http://www.cs.toronto.edu/~tijmen/csc321/slides/lecture_slides_lec6.pdf)中提出.
 
-The centered version first appears in [Generating Sequences With Recurrent Neural Networks](
+中心版本首次出现在[Generating Sequences With Recurrent Neural Networks](
 https://arxiv.org/pdf/1308.0850v5.pdf).
 
 **参数：**
 	
 * params (iterable) – 待优化参数的iterable或者是定义了参数组的dict
-* lr (float, 可选) – 学习率（默认：1e-2）
-* momentum (float, 可选) – momentum factor (default: 0)
-* alpha (float, 可选) – smoothing constant (default: 0.99)
-* eps (float, 可选) – 为了增加数值计算的稳定性而加到分母里的项（默认：1e-8）
-* centered (bool, 可选) – if True, compute the centered RMSProp, the gradient is normalized by an estimation of its variance
-* weight_decay (float, 可选) – 权重衰减（L2惩罚）（默认: 0）
+* lr (`float`, 可选) – 学习率（默认：1e-2）
+* momentum (`float`, 可选) – 动量因子（默认：0）
+* alpha (`float`, 可选) – 平滑常数（默认：0.99）
+* eps (`float`, 可选) – 为了增加数值计算的稳定性而加到分母里的项（默认：1e-8）
+* centered (`bool`, 可选) – 如果为True，计算中心化的RMSProp，并且用它的方差预测值对梯度进行归一化
+* weight_decay (`float`, 可选) – 权重衰减（L2惩罚）（默认: 0）
 
 #### step(closure) [source]
 进行单次优化 (参数更新).
 
 **参数：**
 
-* closure (callable) – 一个重新评价模型并返回loss的闭包，对于大多数参数来说是可选的。
+* closure (`callable`) – 一个重新评价模型并返回loss的闭包，对于大多数参数来说是可选的。
 
 ### class torch.optim.Rprop(params, lr=0.01, etas=(0.5, 1.2), step_sizes=(1e-06, 50))[source]
 实现弹性反向传播算法。
 
 **参数：**
 
-params (iterable) – 待优化参数的iterable或者是定义了参数组的dict
-lr (float, 可选) – 学习率（默认：1e-2）
-etas (Tuple[float, float], 可选) – pair of (etaminus, etaplis), that are multiplicative increase and decrease factors (default: (0.5, 1.2))
-step_sizes (Tuple[float, float], 可选) – a pair of minimal and maximal allowed step sizes (default: (1e-6, 50))
+* params (iterable) – 待优化参数的iterable或者是定义了参数组的dict
+* lr (`float`, 可选) – 学习率（默认：1e-2）
+* etas (Tuple[`float`, `float`], 可选) – 一对（etaminus，etaplis）, 它们分别是乘法的增加和减小的因子（默认：0.5，1.2）
+* step_sizes (Tuple[`float`, `float`], 可选) – 允许的一对最小和最大的步长（默认：1e-6，50）
 
 #### step(closure) [source]
 进行单次优化 (参数更新).
 
 **参数：**
 
-* closure (callable) – 一个重新评价模型并返回loss的闭包，对于大多数参数来说是可选的。
+* closure (`callable`) – 一个重新评价模型并返回loss的闭包，对于大多数参数来说是可选的。
 
 ### class torch.optim.SGD(params, lr=<object object>, momentum=0, dampening=0, weight_decay=0, nesterov=False)[source]
 实现随机梯度下降算法（momentum可选）。
 
-Nesterov momentum is based on the formula from [On the importance of initialization and momentum in deep learning](
-http://www.cs.toronto.edu/~hinton/absps/momentum.pdf).
+Nesterov动量基于[On the importance of initialization and momentum in deep learning](
+http://www.cs.toronto.edu/~h`int`on/absps/momentum.pdf)中的公式.
 
 **参数：**
 
 * params (iterable) – 待优化参数的iterable或者是定义了参数组的dict
-* lr (float) – 学习率
-* momentum (float, 可选) – momentum factor (default: 0)
-* weight_decay (float, 可选) – weight decay (L2 penalty) (default: 0)
-* dampening (float, 可选) – dampening for momentum (default: 0)
-* nesterov (bool, 可选) – enables Nesterov momentum (default: False)
+* lr (`float`) – 学习率
+* momentum (`float`, 可选) – 动量因子（默认：0）
+* weight_decay (`float`, 可选) – 权重衰减（L2惩罚）（默认：0）
+* dampening (`float`, 可选) – 动量的抑制因子（默认：0）
+* nesterov (`bool`, 可选) – 使用Nesterov动量（默认：False）
 
 **例子：**
 ```python
@@ -303,27 +303,27 @@ http://www.cs.toronto.edu/~hinton/absps/momentum.pdf).
 ```
 
 #### Note
-The implementation of SGD with Momentum/Nesterov subtly differs from Sutskever et. al. and implementations in some other frameworks.
+带有动量/Nesterov的SGD的实现稍微不同于Sutskever等人以及其他框架中的实现。
 
-Considering the specific case of Momentum, the update can be written as
+考虑动量的具体情况，更新可以写成
 
 v=ρ∗v+g
 
 p=p−lr∗v
 
-where p, g, v and ρρ denote the parameters, gradient, velocity, and momentum respectively.
+其中，p、g、v和ρ分别是参数、梯度、速度和动量。
 
-This is in constrast to Sutskever et. al. and other frameworks which employ an update of the form
+这跟Sutskever等人以及其他框架的实现是相反的，它们采用这样的更新
 
 v=ρ∗v+lr∗g
 
 p=p−v
 
-The Nesterov version is analogously modified.
- 
+Nesterov的版本也类似地被修改了。
+
 #### step(closure) [source]
 进行单次优化 (参数更新).
 
 **参数：**
 
-* closure (callable) – 一个重新评价模型并返回loss的闭包，对于大多数参数来说是可选的。
+* closure (`callable`) – 一个重新评价模型并返回loss的闭包，对于大多数参数来说是可选的。
