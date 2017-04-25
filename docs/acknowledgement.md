@@ -14,6 +14,7 @@
 |kophy|package参考|torch.Storage|
 |kophy|package参考|torch.nn.init|
 |KeithYin|package参考|torch.autograd|
+|ZijunDeng|package参考|torch.optim|
 |ycszen|pacakge参考|torch.legacy|
 |ycszen|package参考|torch.cuda|
 |ycszen|pacakge参考|torch.utils.ffi|
