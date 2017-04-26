@@ -2,7 +2,7 @@
 
 ---
 
-本项目由[awfssv](https://github.com/awfssv), [ycszen](https://github.com/ycszen), [KeithYin](https://github.com/KeithYin), [kophy](https://github.com/kophy)等PyTorch爱好者发起，并已获得PyTorch官方授权。我们目的是建立[PyTorch](http://pytorch.org/docs/)的中文文档，并力所能及地提供更多的帮助和建议。
+本项目由[awfssv](https://github.com/awfssv), [ycszen](https://github.com/ycszen), [KeithYin](https://github.com/KeithYin), [kophy](https://github.com/kophy), [swordspoet](https://github.com/swordspoet), [dyl745001196](https://github.com/dyl745001196), [koshinryuu](https://github.com/koshinryuu)等PyTorch爱好者发起，并已获得PyTorch官方授权。我们目的是建立[PyTorch](http://pytorch.org/docs/)的中文文档，并力所能及地提供更多的帮助和建议。
 
 本项目网址为[pytorch-cn](http://pytorch-cn.readthedocs.io/zh/latest/)，文档翻译QQ群：628478868
 
@@ -18,7 +18,7 @@
 - [x] Serialization semantics (*ycszen*)
 
 ### Package Reference
-- [ ] **torch**(小龙)
+- [x] torch(*koshinryuu*)
 - [ ] **torch.Tensor**(魏国强)
 - [x] torch.Storage(*kophy*)
 - [ ] **torch.nn**
@@ -26,13 +26,13 @@
   - [x] Containers(*KeithYin*)
   - [ ] **Convolution Layers**(吴锦林)
   - [ ] **Pooling Layers**(吴锦林)
-  - [x] Non-linear Activations
+  - [x] Non-linear Activations(swordspoet)
   - [x] Normalization layers(*XavierLin*)
   - [x] Recurrent layers(*KeithYin*)
-  - [ ] **Linear layers**
-  - [ ] **Dropout layers**
-  - [ ] **Sparse layers**
-  - [ ] **Distance functions**
+  - [x] Linear layers
+  - [x] Dropout layers
+  - [x] Sparse layers
+  - [x] Distance functions
   - [x] Loss functions(*KeithYin*)
   - [x] Vision layers(*KeithYin*)
   - [x] Multi-GPU layers(*KeithYin*)
@@ -42,11 +42,11 @@
   - [x] Pooling functions(*ycszen*)
   - [x] Non-linear activations functions(*ycszen*)
   - [x] Normalization functions(*ycszen*)
-  - [ ] **Linear functions**
-  - [ ] **Dropout functions**
-  - [ ] **Distance functions**(飞彦)
+  - [x] Linear functions(*dyl745001196*)
+  - [x] Dropout functions(*dyl745001196*)
+  - [x] Distance functions(*dyl745001196*)
   - [ ] **Loss functions**(飞彦)
-  - [x] Vision functions(KeithYin)
+  - [x] Vision functions(*KeithYin*)
 - [x] torch.nn.init(*kophy*)
 - [ ] **torch.optim**(邓梓君)
 - [x] torch.autograd(*KeithYin*)
