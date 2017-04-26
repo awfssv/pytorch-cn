@@ -340,6 +340,60 @@ $$
 >>> output.backward()
 ```
 
+## 损失函数（Loss functions）
+
+```python
+torch.nn.functional.nll_loss(input, target, weight=None, size_average=True)
+```
+负的log likelihood损失函数. 详细请看[NLLLoss](...).
+
+**参数：**
+- **input** - (N,C) C 是类别的个数
+- **target** - (N) 其大小是 0 <= targets[i] <= C-1
+- **weight** (Variable, optional) – 一个可手动指定每个类别的权重。如果给定的话，必须是大小为nclasses的Variable 
+- **size_average** (bool, optional) – 默认情况下，是``mini-batch``loss的平均值，然而，如果size_average=False，则是``mini-batch``loss的总和。
+
+
+**Variables:**
+- **weight** – 对于constructor而言，每一类的权重作为输入
+
+```python
+torch.nn.functional.kl_div(input, target, size_average=True)
+```
+KL 散度损失函数，详细请看[KLDivLoss](...)
+
+**参数：**	
+- **input** – 任意形状的 Variable
+- **target** – 与输入相同形状的 Variable
+- **size_average** – 如果为TRUE，loss则是平均值，需要除以输入 tensor 中 element 的数目
+
+```python
+torch.nn.functional.cross_entropy(input, target, weight=None, size_average=True)
+```
+该函数使用了 log_softmax 和 nll_loss，详细请看[CrossEntropyLoss](...)
+
+**参数：**	
+- **input** - (N,C) 其中，C 是类别的个数
+- **target** - (N) 其大小是 0 <= targets[i] <= C-1
+- **weight** (Variable, optional) – 一个可手动指定每个类别的权重。如果给定的话，必须是大小为nclasses的Variable 
+- **size_average** (bool, optional) – 默认情况下，是``mini-batch``loss的平均值，然而，如果size_average=False，则是``mini-batch``loss的总和。
+
+```python
+torch.nn.functional.binary_cross_entropy(input, target, weight=None, size_average=True)
+```
+该函数计算了输出与target之间的二进制交叉熵，详细请看[BCELoss](...)
+
+**参数：**	
+- **input** – 任意形状的 Variable
+- **target** – 与输入相同形状的 Variable
+- **weight** (Variable, optional) – 一个可手动指定每个类别的权重。如果给定的话，必须是大小为nclasses的Variable 
+- **size_average** (bool, optional) – 默认情况下，是``mini-batch``loss的平均值，然而，如果size_average=False，则是``mini-batch``loss的总和。
+
+```python
+torch.nn.functional.smooth_l1_loss(input, target, size_average=True)
+```
+
+
 ## Vision functions
 ### torch.nn.functional.pixel_shuffle(input, upscale_factor)[source]
 
