@@ -194,7 +194,7 @@ __参数：__
 #### dot(_tensor2_) → float
 请查看`torch.dot()`
 #### double()
-将该tensor投射位double类型
+将该tensor投射为double类型
 #### eig(_eigenvectors=False_) -> (_Tensor, Tensor_)
 请查看`torch.eig()`
 #### element_size() → int
@@ -825,4 +825,4 @@ torch.Size([2, 8])
 self.view(tensor.size())
 ```
 #### zero_()
-用0填充该tensor。``
+用0填充该tensor。
