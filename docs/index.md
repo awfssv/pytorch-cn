@@ -10,8 +10,8 @@ PyTorch是使用GPU和CPU优化的深度学习张量库。
 
 ##Package参考
 - [torch](package_references/torch.md)
-- [torch.Tensor]()
 - [torch.Storage](package_references/Storage.md)
+- [torch.Tensor](package_references/Tensor.md)
 - [torch.nn](package_references/torch-nn.md)
 - [torch.nn.functional](package_references/functional.md)
 - [torch.nn.init](package_references/nn_init.md)

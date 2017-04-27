@@ -9,6 +9,7 @@ pages:
 
 - [package_references/torch.md, 'PACKAGE参考'， 'torch']
 - [package_references/Storage.md, 'PACKAGE参考', 'torch.Storage']
+- [package_references/Tensor.md, 'PACKAGE参考'， 'torch.Tensor']
 - [package_references/nn.md, 'PACKAGE参考', 'torch.nn']
 - [package_references/functional.md 'PACKAGE参考', 'torch.nn.functional']
 - [package_references/torch-autograd.md, 'PACKAGE参考', 'torch.nn.init']
