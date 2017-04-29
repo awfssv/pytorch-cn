@@ -12,6 +12,7 @@
 |ycszen|说明|多进程最佳实践|
 |ycszen|说明|序列化语义|
 |koshinryuu|package参考|torch|
+|weigp|package参考|torch.Tensor|
 |kophy|package参考|torch.Storage|
 |KeithYin|package参考|torch.nn/Parameters|
 |KeithYin|package参考|torch.nn/Containers|
@@ -32,6 +33,7 @@
 |dyl745001196|package参考|torch.nn.functional/Linear functions|
 |dyl745001196|package参考|torch.nn.functional/Dropout functions|
 |dyl745001196|package参考|torch.nn.functional/Distance functions|
+|tfygg|package参考|torch.nn.functinal/Loss functions|
 |KeithYin|package参考|torch.nn.functional/Vision functions|
 |kophy|package参考|torch.nn.init|
 |KeithYin|package参考|torch.autograd|

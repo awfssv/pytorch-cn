@@ -2,7 +2,7 @@
 
 ---
 
-本项目由[awfssv](https://github.com/awfssv), [ycszen](https://github.com/ycszen), [KeithYin](https://github.com/KeithYin), [kophy](https://github.com/kophy), [swordspoet](https://github.com/swordspoet), [dyl745001196](https://github.com/dyl745001196), [koshinryuu](https://github.com/koshinryuu)等PyTorch爱好者发起，并已获得PyTorch官方授权。我们目的是建立[PyTorch](http://pytorch.org/docs/)的中文文档，并力所能及地提供更多的帮助和建议。
+本项目由[awfssv](https://github.com/awfssv), [ycszen](https://github.com/ycszen), [KeithYin](https://github.com/KeithYin), [kophy](https://github.com/kophy), [swordspoet](https://github.com/swordspoet), [dyl745001196](https://github.com/dyl745001196), [koshinryuu](https://github.com/koshinryuu), [tfygg](https://github.com/tfygg), [weigp](https://github.com/weigq), [hahadaniel](https://github.com/hahadaniel)等PyTorch爱好者发起，并已获得PyTorch官方授权。我们目的是建立[PyTorch](http://pytorch.org/docs/)的中文文档，并力所能及地提供更多的帮助和建议。
 
 本项目网址为[pytorch-cn](http://pytorch-cn.readthedocs.io/zh/latest/)，文档翻译QQ群：628478868
 
@@ -19,7 +19,7 @@
 
 ### Package Reference
 - [x] torch(*koshinryuu*)
-- [ ] **torch.Tensor**(魏国强)
+- [x] torch.Tensor(*weigp*)
 - [x] torch.Storage(*kophy*)
 - [ ] **torch.nn**
   - [x] Parameters(*KeithYin*)
@@ -37,7 +37,7 @@
   - [x] Vision layers(*KeithYin*)
   - [x] Multi-GPU layers(*KeithYin*)
   - [x] Utilities(*KeithYin*)
-- [ ] **torch.nn.functional**
+- [x] torch.nn.functional
   - [x] Convolution functions(*ycszen*)
   - [x] Pooling functions(*ycszen*)
   - [x] Non-linear activations functions(*ycszen*)
@@ -45,10 +45,10 @@
   - [x] Linear functions(*dyl745001196*)
   - [x] Dropout functions(*dyl745001196*)
   - [x] Distance functions(*dyl745001196*)
-  - [ ] **Loss functions**(飞彦)
+  - [x] Loss functions(*tfygg*)
   - [x] Vision functions(*KeithYin*)
 - [x] torch.nn.init(*kophy*)
-- [ ] **torch.optim**(邓梓君)
+- [x] torch.optim(*hahadaniel*)
 - [x] torch.autograd(*KeithYin*)
 - [ ] **torch.multiprocessing**(韩松伯)
 - [x] torch.legacy(*ycszen*)
