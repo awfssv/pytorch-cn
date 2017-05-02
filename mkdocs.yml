@@ -13,8 +13,9 @@ pages:
 - [package_references/nn.md, 'PACKAGE参考', 'torch.nn']
 - [package_references/functional.md 'PACKAGE参考', 'torch.nn.functional']
 - [package_references/torch-autograd.md, 'PACKAGE参考', 'torch.nn.init']
-- [package_references/nn_init.md, 'PACKAGE参考', 'torch.autograd']
 - [package_references/torch-optim.md, 'PACKAGE参考', 'torch.optim']
+- [package_references/nn_init.md, 'PACKAGE参考', 'torch.autograd']
+
 - [package_references/legacy.md, 'PACKAGE参考', 'torch.legacy']
 - [package_references/torch-cuda.md, 'PACKAGE参考', 'torch.cuda']
 - [package_references/ffi.md, 'PACKAGE参考', 'torch.utils.ffi']
