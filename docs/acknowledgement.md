@@ -16,6 +16,8 @@
 |kophy|package参考|torch.Storage|
 |KeithYin|package参考|torch.nn/Parameters|
 |KeithYin|package参考|torch.nn/Containers|
+|yichuan9527|package参考|torch.nn/Convolution Layers|
+|yichuan9527|package参考|torch.nn/Pooling Layers|
 |swordspoet|package参考|torch.nn/Non-linear Activations|
 |XavierLin|package参考|torch.nn/Normalization layers|
 |KeithYin|package参考|torch.nn/Recurrent layers|
@@ -37,6 +39,7 @@
 |KeithYin|package参考|torch.nn.functional/Vision functions|
 |kophy|package参考|torch.nn.init|
 |KeithYin|package参考|torch.autograd|
+|songbo.han|package参考|torch.multiprocessing|
 |ZijunDeng|package参考|torch.optim|
 |ycszen|pacakge参考|torch.legacy|
 |ycszen|package参考|torch.cuda|
