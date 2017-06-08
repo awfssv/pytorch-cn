@@ -331,7 +331,7 @@ class MyModule(nn.Module):
         self.linears = nn.ModuleList([nn.Linear(10, 10) for i in range(10)])
 
     def forward(self, x):
-        # ModuleList can act as an iterable, or be indexed using ints
+        # ModuleList can act as an iterable, or be indexed         using ints
         for i, l in enumerate(self.linears):
             x = self.linears[i // 2](x) + l(x)
         return x
@@ -385,6 +385,752 @@ class MyModule(nn.Module):
 参数说明:
 
 - parameters (list) – list of parameters to append
+
+## 卷积层
+### class torch.nn.Conv1d(in\_channels, out\_channels, kernel\_size, stride=1, padding=0, dilation=1, groups=1, bias=True)###
+一维卷积层，输入的尺度是($N, C_{in},L$)，输出尺度（$ N,C_{out},L_{out}$）的计算方式：  
+$out(N_i, C_{out_j})=bias(C _{out_j})+\sum^{C_{in}-1}_{k=0}weight(C_{out_j},k)\bigotimes input(N_i,k)$
+
+**说明**   
+
+`bigotimes`: 表示相关系数计算     
+`stride`: 控制相关系数的计算步长    
+`dilation`: 用于控制内核点之间的距离，详细描述在这[此处输入链接的描述][1]      
+`groups`: 控制输入和输出之间的连接，    `group=1`，输出是所有的输入的卷积；`group=2`，此时相当于有并排的两个卷积层，每个卷积层计算输入通道的一半，并且产生的输出是输出通道的一半，随后将这两个输出连接起来。
+
+
+
+**Parameters：**  
+
+- `in_channels` (`int`) – 输入信号的通道
+- `out_channels` (`int`) – 卷积产生的通道
+- `kerner_size`(`int` or `tuple`) - 卷积核的尺寸
+- `stride` (`int` or `tuple`, optional) - 卷积步长
+- `padding` (`int` or `tuple`, optional)- 输入的每一条边补充0的层数     
+- `dilation` (`int` or `tuple`, optional) – 卷积核元素之间的间距
+- `groups` (`int`, optional) – 从输入通道到输出通道的阻塞连接数
+- `bias` (`bool`, optional) - 如果`bias`=`True`，添加偏置
+
+**shape:**  
+`input`: $(N,C_{in},L_{in})$    
+`output`: $(N,C_{out},L_{out})$   
+$L_{out}=floor((L_{in}+2*padding-dilation*(kernerl\_size-1)-1)/stride+1)$
+
+**变量:**  
+`weight(Tensor)` - 卷积的权重，shape是(`out_channels`, `in_channels`, `kernel_size`)  
+`bias(Tensor)` - 卷积的偏置系数，shape是（`out_channel`）  
+
+**example:**
+```python
+>>> m = nn.Conv1d(16, 33, 3, stride=2)
+>>> input = autograd.Variable(torch.randn(20, 16, 50))
+>>> output = m(input)
+```
+
+### class torch.nn.Conv2d(in\_channels, out\_channels, kernel\_size, stride=1, padding=0, dilation=1, groups=1, bias=True)###
+二维卷积层, 输入的尺度是($N, C_{in},H,W$)，输出尺度（$N,C_{out},H_{out},W_{out}$）的计算方式：  
+$$out(N_i, C_{out_j})=bias(C_{out_j})+\sum^{C_{in}-1}_{k=0}weight(C_{out_j},k)\bigotimes input(N_i,k)$$  
+**说明**  
+`bigotimes`: 表示二维的相关系数计算
+`stride`: 控制相关系数的计算步长   
+`dilation`: 用于控制内核点之间的距离，详细描述在这[此处输入链接的描述][2]  
+`groups`: 控制输入和输出之间的连接： `group=1`，输出是所有的输入的卷积；`group=2`，此时相当于有并排的两个卷积层，每个卷积层计算输入通道的一半，并且产生的输出是输出通道的一半，随后将这两个输出连接起来。
+参数`kernel_size`，`stride,padding`，`dilation`也可以是一个`int`的数据，此时卷积height和width值相同;也可以是一个`tuple`数组，`tuple`的第一维度表示height的数值，tuple的第二维度表示width的数值
+
+**Parameters：**  
+
+ - `in_channels` (`int`) – 输入信号的通道
+ - `out_channels` (`int`) – 卷积产生的通道
+ - `kerner\_size`(`int` or `tuple`) - 卷积核的尺寸
+ - `stride` (`int` or `tuple`, optional) - 卷积步长
+ - `padding` (`int` or `tuple`, optional) - 输入的每一条边补充0的层数
+ - `dilation` (`int` or `tuple`, optional) – 卷积核元素之间的间距
+ - `groups` (`int`, optional) – 从输入通道到输出通道的阻塞连接数
+ - `bias` (`bool`, optional) - 如果`bias=True`，添加偏置
+
+**shape:**  
+`input`: $(N,C_{in},H_{in},W_{in})$    
+`output`: $(N,C_{out},H_{out},W_{out})$  
+$H_{out}=floor((H_{in}+2*padding[0]-dilation[0]*(kernerl\_size[0]-1)-1)/stride[0]+1)$    
+$W_{out}=floor((W_{in}+2*padding[1]-dilation[1]*(kernerl\_size[1]-1)-1)/stride[1]+1)$  
+
+**变量:**  
+`weight(Tensor)` - 卷积的权重，shape是(`out_channels`, `in_channels`,`kernel_size`)  
+`bias(Tensor)` - 卷积的偏置系数，shape是（`out_channel`）  
+
+**example:**
+```python
+>>> # With square kernels and equal stride
+>>> m = nn.Conv2d(16, 33, 3, stride=2)
+>>> # non-square kernels and unequal stride and with padding
+>>> m = nn.Conv2d(16, 33, (3, 5), stride=(2, 1), padding=(4, 2))
+>>> # non-square kernels and unequal stride and with padding and dilation
+>>> m = nn.Conv2d(16, 33, (3, 5), stride=(2, 1), padding=(4, 2), dilation=(3, 1))
+>>> input = autograd.Variable(torch.randn(20, 16, 50, 100))
+>>> output = m(input)
+```
+
+### class torch.nn.Conv3d(in\_channels, out\_channels, kernel\_size, stride=1, padding=0, dilation=1, groups=1, bias=True)###
+三维卷积层, 输入的尺度是($N, C_{in},D,H,W$)，输出尺度（$N,C_{out},D_{out},H_{out},W_{out}$）的计算方式：  
+$out(N_i, C_{out_j})=bias(C_{out_j})+\sum^{C_{in}-1}_{k=0}weight(C_{out_j},k)\bigotimes input(N_i,k)$
+
+**说明**  
+`bigotimes`: 表示二维的相关系数计算
+`stride`: 控制相关系数的计算步长   
+`dilation`: 用于控制内核点之间的距离，详细描述在这[此处输入链接的描述][3]
+`groups`: 控制输入和输出之间的连接： `group=1`，输出是所有的输入的卷积；`group=2`，此时相当于有并排的两个卷积层，每个卷积层计算输入通道的一半，并且产生的输出是输出通道的一半，随后将这两个输出连接起来。  
+参数`kernel_size`，`stride`，`padding`，`dilation`也可以是一个`int`的数据 - 卷积height和width值相同，也可以是一个有三个`int`数据的`tuple`数组，`tuple`的第一维度表示depth的数值，`tuple`的第二维度表示height的数值，`tuple`的第三维度表示width的数值
+
+**Parameters：**  
+
+ - `in_channels (int)` – 输入信号的通道
+ - `out_channels (int)` – 卷积产生的通道
+ - `kernel\_size(int or tuple)` - 卷积核的尺寸
+ - `stride (int or tuple, optional)` - 卷积步长
+ - `padding (int or tuple, optional)` - 输入的每一条边补充0的层数
+ - `dilation (int or tuple, optional)` – 卷积核元素之间的间距
+ - `groups (int, optional)` – 从输入通道到输出通道的阻塞连接数
+ - `bias (bool, optional)` - 如果`bias=True`，添加偏置
+
+**shape:**  
+`input`: $(N,C_{in},D_{in},H_{in},W_{in})$    
+`output`: $(N,C_{out},D_{out},H_{out},W_{out})$    
+$D_{out}=floor((D_{in}+2*padding[0]-dilation[0]*(kernerl\_size[0]-1)-1)/stride[0]+1)$  
+$H_{out}=floor((H_{in}+2*padding[1]-dilation[2]*(kernerl\_size[1]-1)-1)/stride[1]+1)$    
+$W_{out}=floor((W_{in}+2*padding[2]-dilation[2]*(kernerl\_size[2]-1)-1)/stride[2]+1)$  
+
+**变量:**  
+`weight(Tensor)` - 卷积的权重，shape是(`out_channels`, `in_channels`,`kernel_size`)`
+`bias(Tensor)` - 卷积的偏置系数，shape是（`out_channel`）  
+
+**example:**
+```python
+>>> # With square kernels and equal stride
+>>> m = nn.Conv3d(16, 33, 3, stride=2)
+>>> # non-square kernels and unequal stride and with padding
+>>> m = nn.Conv3d(16, 33, (3, 5, 2), stride=(2, 1, 1), padding=(4, 2, 0))
+>>> input = autograd.Variable(torch.randn(20, 16, 10, 50, 100))
+>>> output = m(input)
+```
+### class torch.nn.ConvTranspose1d(in_channels, out_channels, kernel_size, stride=1, padding=0, output_padding=0, groups=1, bias=True)###
+1维的解卷积操作（`transposed convolution operator`，注意改视作操作可视作解卷积操作，但并不是真正的解卷积操作）
+该模块可以看作是`Conv1d`相对于其输入的梯度，有时（但不正确地）被称为解卷积操作。
+
+**注意**  
+由于内核的大小，输入的最后的一些列的数据可能会丢失。因为输入和输出是不是完全的互相关。因此，用户可以进行适当的填充（padding操作）。  
+
+**参数**
+
+ - `in_channels (int)` – 输入信号的通道数
+ - `out_channels (int)` – 卷积产生的通道
+ - `kernel\_size(int or tuple)` - 卷积核的大小
+ - `stride (int or tuple, optional)` - 卷积步长
+ - `padding (int or tuple, optional)` - 输入的每一条边补充0的层数
+ - `output_padding (int or tuple, optional)` - 输出的每一条边补充0的层数
+ - `dilation (int or tuple, optional)` – 卷积核元素之间的间距
+ - `groups (int, optional)` – 从输入通道到输出通道的阻塞连接数
+ - `bias (bool, optional)` - 如果`bias=True`，添加偏置
+
+**shape:**
+`input`: $(N,C_{in},L_{in})$    
+`output`: $(N,C_{out},L_{out})$    
+$L_{out}=(L_{in}-1)*stride-2*padding+kernel\_size+output\_padding$  
+
+**变量:**  
+`weight(Tensor)` - 卷积的权重，大小是`(in_channels, in_channels,kernel_size)`  
+`bias(Tensor)` - 卷积的偏置系数，大小是`（out_channel）`
+
+### class torch.nn.ConvTranspose2d(in_channels, out_channels, kernel_size, stride=1, padding=0, output_padding=0, groups=1, bias=True)
+2维的转置卷积操作（transposed convolution operator，注意改视作操作可视作解卷积操作，但并不是真正的解卷积操作）
+该模块可以看作是`Conv2d`相对于其输入的梯度，有时（但不正确地）被称为解卷积操作。
+
+**说明**
+
+`stride`: 控制相关系数的计算步长   
+`dilation`: 用于控制内核点之间的距离，详细描述在这[此处输入链接的描述][4]  
+`groups`: 控制输入和输出之间的连接： `group=1`，输出是所有的输入的卷积；`group=2`，此时相当于有并排的两个卷积层，每个卷积层计算输入通道的一半，并且产生的输出是输出通道的一半，随后将这两个输出连接起来。
+参数`kernel_size`，`stride`，`padding`，`dilation`数据类型：
+一个`int`类型的数据，此时卷积height和width值相同;
+也可以是一个`tuple`数组（包含来两个`int`类型的数据），第一个`int`数据表示`height`的数值，第二个`int`类型的数据表示width的数值
+
+**注意**  
+由于内核的大小，输入的最后的一些列的数据可能会丢失。因为输入和输出是不是完全的互相关。因此，用户可以进行适当的填充（padding操作）。
+
+**参数：**
+
+ - `in_channels (int)` – 输入信号的通道数
+ - `out_channels (int)` – 卷积产生的通道数
+ - `kerner\_size(int or tuple)` - 卷积核的大小
+ - `stride (int or tuple, optional)` - 卷积步长
+ - `padding (int or tuple, optional)` - 输入的每一条边补充0的层数
+ - `output_padding (int or tuple, optional)` - 输出的每一条边补充0的层数
+ - `dilation (int or tuple, optional)` – 卷积核元素之间的间距
+ - `groups (int, optional)` – 从输入通道到输出通道的阻塞连接数
+ - `bias (bool, optional)` - 如果`bias=True`，添加偏置
+
+**shape:**   
+`input`: $(N,C_{in},H_{in}，W_{in})$    
+`output`: $(N,C_{out},H_{out},W_{out})$    
+$H_{out}=(H_{in}-1)*stride[0]-2*padding[0]+kernel\_size[0]+output\_padding[0]$  
+$W_{out}=(W_{in}-1)*stride[1]-2*padding[1]+kernel\_size[1]+output\_padding[1]$  
+
+**变量:**     
+`weight(Tensor)` - 卷积的权重，大小是`(in_channels, in_channels,kernel_size)`    
+`bias(Tensor)` - 卷积的偏置系数，大小是`（out_channel）`  
+
+**Example**
+
+```python
+>>> # With square kernels and equal stride
+>>> m = nn.ConvTranspose2d(16, 33, 3, stride=2)
+>>> # non-square kernels and unequal stride and with padding
+>>> m = nn.ConvTranspose2d(16, 33, (3, 5), stride=(2, 1), padding=(4, 2))
+>>> input = autograd.Variable(torch.randn(20, 16, 50, 100))
+>>> output = m(input)
+>>> # exact output size can be also specified as an argument
+>>> input = autograd.Variable(torch.randn(1, 16, 12, 12))
+>>> downsample = nn.Conv2d(16, 16, 3, stride=2, padding=1)
+>>> upsample = nn.ConvTranspose2d(16, 16, 3, stride=2, padding=1)
+>>> h = downsample(input)
+>>> h.size()
+torch.Size([1, 16, 6, 6])
+>>> output = upsample(h, output_size=input.size())
+>>> output.size()
+torch.Size([1, 16, 12, 12])
+```
+
+### torch.nn.ConvTranspose3d(in\_channels, out\_channels, kernel\_size, stride=1, padding=0, output\_padding=0, groups=1, bias=True)
+
+3维的转置卷积操作（transposed convolution operator，注意改视作操作可视作解卷积操作，但并不是真正的解卷积操作）
+转置卷积操作将每个输入值和一个可学习权重的卷积核相乘，输出所有输入通道的求和
+
+该模块可以看作是`Conv3d`相对于其输入的梯度，有时（但不正确地）被称为解卷积操作。
+
+**说明**
+
+`stride`: 控制相关系数的计算步长   
+`dilation`: 用于控制内核点之间的距离，详细描述在这[此处输入链接的描述][5]
+`groups`: 控制输入和输出之间的连接： `group=1`，输出是所有的输入的卷积；`group=2`，此时相当于有并排的两个卷积层，每个卷积层计算输入通道的一半，并且产生的输出是输出通道的一半，随后将这两个输出连接起来。
+参数`kernel\_size`，`stride`, `padding`，`dilation`数据类型：
+一个`int`类型的数据，此时卷积height和width值相同;
+也可以是一个`tuple`数组（包含来两个`int`类型的数据），第一个`int`数据表示height的数值，tuple的第二个int类型的数据表示width的数值
+
+**注意**  
+由于内核的大小，输入的最后的一些列的数据可能会丢失。因为输入和输出是不是完全的互相关。因此，用户可以进行适当的填充（padding操作）。
+
+**参数：**
+
+ - `in_channels (int)` – 输入信号的通道数
+ - `out_channels (int)` – 卷积产生的通道数
+ - `kernel_size(int or tuple)` - 卷积核的大小
+ - `stride (int or tuple, optional)` - 卷积步长
+ - `padding (int or tuple, optional)` - 输入的每一条边补充0的层数
+ - `output_padding(int or tuple, optional)` - 输出的每一条边补充0的层数
+ - `dilation (int or tuple, optional)` – 卷积核元素之间的间距
+ - `groups (int, optional)` – 从输入通道到输出通道的阻塞连接数
+ - `bias (bool, optional)` - 如果`bias=True`，添加偏置
+
+**shape:**  
+`input`: $(N,C_{in},H_{in}，W_{in})$    
+`output`: $(N,C_{out},H_{out},W_{out})$  
+$D_{out}=(D_{in}-1)*stride[0]-2*padding[0]+kernel\_size[0]+output\_padding[0]$  
+$H_{out}=(H_{in}-1)*stride[1]-2*padding[1]+kernel\_size[1]+output\_padding[0]$  
+$W_{out}=(W_{in}-1)*stride[2]-2*padding[2]+kernel\_size[2]+output\_padding[2]$  
+
+**变量:**  
+`weight(Tensor)` - 卷积的权重，大小是(`in_channels`, `in_channels`,`kernel_size`)  
+`bias(Tensor)` - 卷积的偏置系数，大小是（`out_channel`）
+
+**Example**
+```python
+>>> # With square kernels and equal stride
+>>> m = nn.ConvTranspose3d(16, 33, 3, stride=2)
+>>> # non-square kernels and unequal stride and with padding
+>>> m = nn.Conv3d(16, 33, (3, 5, 2), stride=(2, 1, 1), padding=(0, 4, 2))
+>>> input = autograd.Variable(torch.randn(20, 16, 10, 50, 100))
+>>> output = m(input)
+```
+
+## 池化层##
+
+### class torch.nn.MaxPool1d(kernel\_size, stride=None, padding=0, dilation=1, return\_indices=False, ceil_mode=False)
+
+对于输入信号的输入通道，提供1维最大池化（max pooling）操作
+
+如果输入的大小是$(N,C,L)$，那么输出的大小是$(N,C,L_{out})$的计算方式是：
+$out(N_i, C_j,k)=max^{kernel\_size-1}_{m=0}input(N_{i},C_j,stride*k+m)$
+
+如果`padding`不是0，会在输入的每一边添加相应数目0
+`dilation`用于控制内核点之间的距离，详细描述在这[此处输入链接的描述][6]
+
+**参数：**
+
+ - `kernel_size`(`int` or `tuple`) - max pooling的窗口大小
+ - `stride` (`int` or `tuple`, `optional`) - max pooling的窗口移动的步长。默认值是`kernel_size`
+ - `padding` (`int` or `tuple`, `optional`) - 输入的每一条边补充0的层数
+ - `dilation` (`int` or `tuple`, `optional`) – 一个控制窗口中元素步幅的参数
+ - `return_indices` - 如果等于`True`，会返回输出最大值的序号，对于上采样操作会有帮助
+ - `ceil_mode` - 如果等于`True`，计算输出信号大小的时候，会使用向上取整，代替默认的向下取整的操作
+
+**shape:**  
+`input`: $(N,C_{in},L_{in})$    
+`output`: $(N,C_{out},L_{out})$    
+$L_{out}=floor((L_{in} + 2*padding - dilation*(kernel\_size - 1) - 1)/stride + 1$  
+
+**example:**
+```python
+>>> # pool of size=3, stride=2
+>>> m = nn.MaxPool1d(3, stride=2)
+>>> input = autograd.Variable(torch.randn(20, 16, 50))
+>>> output = m(input)
+```
+
+### class torch.nn.MaxPool2d(kernel\_size, stride=None, padding=0, dilation=1, return\_indices=False, ceil\_mode=False)
+
+对于输入信号的输入通道，提供2维最大池化（max pooling）操作
+
+如果输入的大小是$(N,C,H,W)$，那么输出的大小是$(N,C,H_{out},W_{out})$和池化窗口大小$(kH,kW)$的关系是：
+$out(N_i, C_j,k)=max^{kH-1}_{m=0}max^{kW-1}_{m=0}input(N_{i},C_j,stride[0]*h+m,stride[1]*w+n)$
+
+如果`padding`不是0，会在输入的每一边添加相应数目0
+`dilation`用于控制内核点之间的距离，详细描述在这[此处输入链接的描述][7]
+
+参数`kernel\_size`，`stride`, `padding`，`dilation`数据类型：
+一个`int`类型的数据，此时卷积height和width值相同;
+也可以是一个`tuple`数组（包含来两个int类型的数据），第一个`int`数据表示height的数值，`tuple`的第二个int类型的数据表示width的数值
+
+**参数：**
+
+ - `kernel_size`(`int` or `tuple`) - max pooling的窗口大小
+ - `stride` (`int` or `tuple`, `optional`) - max pooling的窗口移动的步长。默认值是`kernel_size`
+ - `padding` (`int` or `tuple`, `optional`) - 输入的每一条边补充0的层数
+ - `dilation` (`int` or `tuple`, `optional`) – 一个控制窗口中元素步幅的参数
+ - `return_indices` - 如果等于`True`，会返回输出最大值的序号，对于上采样操作会有帮助
+ - `ceil_mode` - 如果等于`True`，计算输出信号大小的时候，会使用向上取整，代替默认的向下取整的操作
+
+**shape:**    
+`input`: $(N,C,H_{in},W_{in})$    
+`output`: $(N,C,H_{out},W_{out})$    
+$H_{out}=floor((H_{in} + 2*padding[0] - dilation[0]*(kernel\_size[0] - 1) - 1)/stride[0] + 1$  
+$W_{out}=floor((W_{in} + 2*padding[1] - dilation[1]*(kernel\_size[1] - 1) - 1)/stride[1] + 1$  
+
+**example:**  
+```python
+>>> # pool of square window of size=3, stride=2
+>>> m = nn.MaxPool2d(3, stride=2)
+>>> # pool of non-square window
+>>> m = nn.MaxPool2d((3, 2), stride=(2, 1))
+>>> input = autograd.Variable(torch.randn(20, 16, 50, 32))
+>>> output = m(input)
+```
+
+### class torch.nn.MaxPool3d(kernel\_size, stride=None, padding=0, dilation=1, return\_indices=False, ceil\_mode=False)
+
+对于输入信号的输入通道，提供3维最大池化（max pooling）操作
+
+如果输入的大小是$(N,C,D,H,W)$，那么输出的大小是$(N,C,D,H_{out},W_{out})$和池化窗口大小$(kD,kH,kW)$的关系是：  
+$out(N_i,C_j,d,h,w)=max^{kD-1}_{m=0}max^{kH-1}_{m=0}max^{kW-1}_{m=0}$   
+$input(N_{i},C_j,stride[0]*k+d,stride[1]*h+m,stride[2]*w+n)$  
+
+如果`padding`不是0，会在输入的每一边添加相应数目0
+`dilation`用于控制内核点之间的距离，详细描述在这[此处输入链接的描述][8]
+
+参数`kernel_size`，`stride`, `padding`，`dilation`数据类型：
+一个`int`类型的数据，此时卷积height和width值相同;
+也可以是一个`tuple`数组（包含来两个`int`类型的数据），第一个`int`数据表示height的数值，`tuple`的第二个`int`类型的数据表示width的数值
+
+**参数：**
+
+ - `kernel\_size`(`int` or `tuple`) - max pooling的窗口大小
+ - `stride` (`int` or `tuple`, `optional`) - max pooling的窗口移动的步长。默认值是kernel_size
+ - `padding` (`int` or `tuple`, `optional`) - 输入的每一条边补充0的层数
+ - `dilation` (`int` or `tuple`, `optional`) – 一个控制窗口中元素步幅的参数
+ - `return_indices` - 如果等于`True`，会返回输出最大值的序号，对于上采样操作会有帮助
+ - `ceil_mode` - 如果等于`True`，计算输出信号大小的时候，会使用向上取整，代替默认的向下取整的操作
+
+**shape:**  
+`input`: $(N,C,H_{in},W_{in})$    
+`output`: $(N,C,H_{out},W_{out})$    
+$D_{out}=floor((D_{in} + 2*padding[0] - dilation[0]*(kernel\_size[0] - 1) - 1)/stride[0] + 1)$   
+$H_{out}=floor((H_{in} + 2*padding[1] - dilation[1]*(kernel\_size[0] - 1) - 1)/stride[1] + 1)$  
+$W_{out}=floor((W_{in} + 2*padding[2] - dilation[2]*(kernel\_size[2] - 1) - 1)/stride[2] + 1)$  
+
+**example:**  
+```python
+    >>> # pool of square window of size=3, stride=2
+    >>> m = nn.MaxPool3d(3, stride=2)
+    >>> # pool of non-square window
+    >>> m = nn.MaxPool3d((3, 2, 2), stride=(2, 1, 2))
+    >>> input = autograd.Variable(torch.randn(20, 16, 50,44, 31))
+    >>> output = m(input)
+```
+
+#### class torch.nn.MaxUnpool1d(kernel\_size, stride=None, padding=0)
+`Maxpool1d`的逆过程，不过并不是完全的逆过程，因为在`maxpool1d`的过程中，一些最大值的已经丢失。
+`MaxUnpool1d`输入`MaxPool1d`的输出，包括最大值的索引，并计算所有`maxpool1d`过程中非最大值被设置为零的部分的反向。
+
+**注意：**  
+`MaxPool1d`可以将多个输入大小映射到相同的输出大小。因此，反演过程可能会变得模棱两可。 为了适应这一点，可以在调用中将输出大小（`output_size`）作为额外的参数传入。 具体用法，请参阅下面的输入和示例
+
+**参数：**
+
+ - `kernel_size`(`int` or `tuple`) - max pooling的窗口大小
+ - `stride` (`int` or `tuple`, `optional`) - max pooling的窗口移动的步长。默认值是`kernel_size`
+ - `padding` (`int` or `tuple`, `optional`) - 输入的每一条边补充0的层数
+
+**输入：**  
+`input`:需要转换的`tensor`
+`indices`：Maxpool1d的索引号
+`output_size`:一个指定输出大小的`torch.Size`
+
+**shape:**  
+`input`: $(N,C,H_{in})$  
+`output`:$(N,C,H_{out})$  
+$H_{out}=(H_{in}-1)*stride[0]-2*padding[0]+kernel\_size[0]$  
+也可以使用`output_size`指定输出的大小
+
+**Example：**
+```python
+>>> pool = nn.MaxPool1d(2, stride=2, return_indices=True)
+>>> unpool = nn.MaxUnpool1d(2, stride=2)
+>>> input = Variable(torch.Tensor([[[1, 2, 3, 4, 5, 6, 7, 8]]]))
+>>> output, indices = pool(input)
+>>> unpool(output, indices)
+    Variable containing:
+    (0 ,.,.) =
+       0   2   0   4   0   6   0   8
+    [torch.FloatTensor of size 1x1x8]
+
+>>> # Example showcasing the use of output_size
+>>> input = Variable(torch.Tensor([[[1, 2, 3, 4, 5, 6, 7, 8, 9]]]))
+>>> output, indices = pool(input)
+>>> unpool(output, indices, output_size=input.size())
+    Variable containing:
+    (0 ,.,.) =
+       0   2   0   4   0   6   0   8   0
+    [torch.FloatTensor of size 1x1x9]
+>>> unpool(output, indices)
+    Variable containing:
+    (0 ,.,.) =
+       0   2   0   4   0   6   0   8
+    [torch.FloatTensor of size 1x1x8]
+```
+
+#### class torch.nn.MaxUnpool2d(kernel\_size, stride=None, padding=0)
+`Maxpool2d`的逆过程，不过并不是完全的逆过程，因为在maxpool2d的过程中，一些最大值的已经丢失。
+`MaxUnpool2d`的输入是`MaxPool2d`的输出，包括最大值的索引，并计算所有`maxpool2d`过程中非最大值被设置为零的部分的反向。
+
+**注意：**  
+`MaxPool2d`可以将多个输入大小映射到相同的输出大小。因此，反演过程可能会变得模棱两可。 为了适应这一点，可以在调用中将输出大小（`output_size`）作为额外的参数传入。具体用法，请参阅下面示例
+
+**参数：**
+
+ - `kernel_size`(`int` or `tuple`) - max pooling的窗口大小
+ - `stride` (`int` or `tuple`, `optional`) - max pooling的窗口移动的步长。默认值是`kernel_size`
+ - `padding` (`int` or `tuple`, `optional`) - 输入的每一条边补充0的层数
+
+**输入：**  
+`input`:需要转换的`tensor`
+`indices`：Maxpool1d的索引号
+`output_size`:一个指定输出大小的`torch.Size`
+
+`input`: $(N,C,H_{in},W_{in})$    
+`output`:$(N,C,H_{out},W_{out})$    
+$H_{out}=(H_{in}-1)*stride[0]-2*padding[0]+kernel\_size[0]$    
+$W_{out}=(W_{in}-1)*stride[1]-2*padding[1]+kernel\_size[1]$    
+也可以使用output_size指定输出的大小
+
+**Example：**
+```python
+>>> pool = nn.MaxPool2d(2, stride=2, return_indices=True)
+>>> unpool = nn.MaxUnpool2d(2, stride=2)
+>>> input = Variable(torch.Tensor([[[[ 1,  2,  3,  4],
+    ...                                  [ 5,  6,  7,  8],
+    ...                                  [ 9, 10, 11, 12],
+    ...                                  [13, 14, 15, 16]]]]))
+>>> output, indices = pool(input)
+>>> unpool(output, indices)
+    Variable containing:
+    (0 ,0 ,.,.) =
+       0   0   0   0
+       0   6   0   8
+       0   0   0   0
+       0  14   0  16
+    [torch.FloatTensor of size 1x1x4x4]
+
+>>> # specify a different output size than input size
+>>> unpool(output, indices, output_size=torch.Size([1, 1, 5, 5]))
+    Variable containing:
+    (0 ,0 ,.,.) =
+       0   0   0   0   0
+       6   0   8   0   0
+       0   0   0  14   0
+      16   0   0   0   0
+       0   0   0   0   0
+    [torch.FloatTensor of size 1x1x5x5]
+```
+
+#### class torch.nn.MaxUnpool3d(kernel\_size, stride=None, padding=0)
+`Maxpool3d`的逆过程，不过并不是完全的逆过程，因为在`maxpool3d`的过程中，一些最大值的已经丢失。
+`MaxUnpool3d`的输入就是`MaxPool3d`的输出，包括最大值的索引，并计算所有`maxpool3d`过程中非最大值被设置为零的部分的反向。
+
+**注意：**
+`MaxPool3d`可以将多个输入大小映射到相同的输出大小。因此，反演过程可能会变得模棱两可。为了适应这一点，可以在调用中将输出大小（`output_size`）作为额外的参数传入。具体用法，请参阅下面的输入和示例
+
+**参数：**
+
+ - `kernel_size`(`int` or `tuple`) - Maxpooling窗口大小
+ - `stride` (`int` or `tuple`, `optional`) - max pooling的窗口移动的步长。默认值是`kernel_size`
+ - `padding` (`int` or `tuple`, `optional`) - 输入的每一条边补充0的层数
+
+**输入：**  
+`input`:需要转换的`tensor`
+`indices`：`Maxpool1d`的索引序数
+`output_size`:一个指定输出大小的`torch.Size`
+
+**shape:**     
+`input`: $(N,C,D_{in},H_{in},W_{in})$    
+`outpu`t:$(N,C,D_{out},H_{out},W_{out})$  
+$D_{out}=(D_{in}-1)*stride[0]-2*padding[0]+kernel\_size[0]$  
+$H_{out}=(H_{in}-1)*stride[1]-2*padding[0]+kernel\_size[1]$  
+$W_{out}=(W_{in}-1)*stride[2]-2*padding[2]+kernel\_size[2]$  
+也可以使用output_size指定输出的大小
+
+**Example：**
+```python
+>>> # pool of square window of size=3, stride=2
+>>> pool = nn.MaxPool3d(3, stride=2, return_indices=True)
+>>> unpool = nn.MaxUnpool3d(3, stride=2)
+>>> output, indices = pool(Variable(torch.randn(20, 16, 51, 33, 15)))
+>>> unpooled_output = unpool(output, indices)
+>>> unpooled_output.size()
+torch.Size([20, 16, 51, 33, 15])
+```
+
+### class torch.nn.AvgPool1d(kernel\_size, stride=None, padding=0, ceil\_mode=False, count\_include_pad=True)
+
+对信号的输入通道，提供1维平均池化（average pooling ）
+输入信号的大小$(N,C,L)$，输出大小$(N,C,L_{out})$和池化窗口大小$k$的关系是：    
+$out(N_i,C_j,l)=1/k*\sum^{k}_{m=0}input(N_{i},C_{j},stride*l+m)$
+如果`padding`不是0，会在输入的每一边添加相应数目0
+
+**参数：**
+
+ - `kernel\_size`(`int` or `tuple`) - 池化窗口大小
+ - `stride` (`int` or `tuple`, `optional`) - max pooling的窗口移动的步长。默认值是`kernel_size`
+ - `padding` (`int` or `tuple`, `optional`) - 输入的每一条边补充0的层数
+ - `dilation` (`int` or `tuple`, `optional`) – 一个控制窗口中元素步幅的参数
+ - `return_indices` - 如果等于`True`，会返回输出最大值的序号，对于上采样操作会有帮助
+ - `ceil_mode` - 如果等于`True`，计算输出信号大小的时候，会使用向上取整，代替默认的向下取整的操作
+
+**shape：**  
+`input`:$(N,C,L_{in})$  
+`output`:$(N,C,L_{out})$  
+$L_{out}=floor((L_{in}+2*padding-kernel\_size)/stride+1)$  
+
+**Example:**
+```python
+    >>> # pool with window of size=3, stride=2
+    >>> m = nn.AvgPool1d(3, stride=2)
+    >>> m(Variable(torch.Tensor([[[1,2,3,4,5,6,7]]])))
+    Variable containing:
+    (0 ,.,.) =
+      2  4  6
+    [torch.FloatTensor of size 1x1x3]
+```
+
+### class torch.nn.AvgPool2d(kernel\_size, stride=None, padding=0, ceil\_mode=False, count\_include_pad=True)
+
+对信号的输入通道，提供2维的平均池化（average pooling ）  
+输入信号的大小$(N,C,H,W)$，输出大小$(N,C,H_{out},W_{out})$和池化窗口大小$(kH,kW)$的关系是：      
+$out(N_i,C_j,h,w)=1/(kH*kW)*\sum^{kH-1}_{m=0}\sum^{kW-1}_{n=0}input(N_{i},C_{j},stride[0]*h+m,stride[1]*w+n)$  
+如果`padding`不是0，会在输入的每一边添加相应数目0
+
+**参数：**
+
+ - `kernel_size`(`int` or `tuple`) - 池化窗口大小
+ - `stride` (`int` or `tuple`, `optional`) - max pooling的窗口移动的步长。默认值是`kernel_size`
+ - `padding` (`int` or `tuple`, `optional`) - 输入的每一条边补充0的层数
+ - `dilation` (`int` or `tuple`, `optional`) – 一个控制窗口中元素步幅的参数
+ - `ceil_mode` - 如果等于`True`，计算输出信号大小的时候，会使用向上取整，代替默认的向下取整的操作
+ - `count_include_pad` - 如果等于`True`，计算平均池化时，将包括`padding`填充的0
+
+**shape：**  
+`input`: $(N,C,H_{in},W_{in})$  
+`output`: $(N,C,H_{out},W_{out})$  
+$H_{out}=floor((H_{in}+2*padding[0]-kernel\_size[0])/stride[0]+1)$  
+$W_{out}=floor((W_{in}+2*padding[1]-kernel\_size[1])/stride[1]+1)$  
+
+**Example:**
+```python
+>>> # pool of square window of size=3, stride=2
+>>> m = nn.AvgPool2d(3, stride=2)
+>>> # pool of non-square window
+>>> m = nn.AvgPool2d((3, 2), stride=(2, 1))
+>>> input = autograd.Variable(torch.randn(20, 16, 50, 32))
+>>> output = m(input)
+```
+
+### class torch.nn.AvgPool3d(kernel\_size, stride=None)
+
+对信号的输入通道，提供3维的平均池化（average pooling  ）
+输入信号的大小$(N,C,D,H,W)$，输出大小$(N,C,D_{out},H_{out},W_{out})$和池化窗口大小$(kD,kH,kW)$的关系是：      
+$out(N_i,C_j,d,h,w)=1/(kD*kH*kW)*\sum^{kD-1}_{k=0}\sum^{kH-1}_{m=0}\sum^{kW-1}_{n=0}$  
+$input(N_{i},C_{j},stride[0]*d+k,stride[1]*h+m,stride[2]*w+n)$  
+如果`padding`不是0，会在输入的每一边添加相应数目0
+
+**参数：**
+
+ - `kernel_size`(`int` or `tuple`) - 池化窗口大小
+ - `stride` (`int` or `tuple`, `optional`) - max pooling的窗口移动的步长。默认值是`kernel_size`
+
+
+**shape：**
+输入大小:$(N,C,D_{in},H_{in},W_{in})$  
+输出大小:$(N,C,D_{out},H_{out},W_{out})$  
+$D_{out}=floor((D_{in}+2*padding[0]-kernel\_size[0])/stride[0]+1)$  
+$H_{out}=floor((H_{in}+2*padding[1]-kernel\_size[1])/stride[1]+1)$  
+$W_{out}=floor((W_{in}+2*padding[2]-kernel\_size[2])/stride[2]+1)$  
+
+**Example:**
+```python
+>>> # pool of square window of size=3, stride=2
+>>> m = nn.AvgPool3d(3, stride=2)
+>>> # pool of non-square window
+>>> m = nn.AvgPool3d((3, 2, 2), stride=(2, 1, 2))
+>>> input = autograd.Variable(torch.randn(20, 16, 50,44, 31))
+>>> output = m(input)
+```
+
+### class torch.nn.FractionalMaxPool2d(kernel\_size, output\_size=None, output\_ratio=None, return\_indices=False, \_random\_samples=None)
+
+对输入的信号，提供2维的分数最大化池化操作
+分数最大化池化的细节请阅读论文[此处输入链接的描述][9]
+由目标输出大小确定的随机步长,在$kH*kW$区域进行最大池化操作。输出特征和输入特征的数量相同。
+
+**参数：**
+
+- `kernel_size`(`int` or `tuple`) - 最大池化操作时的窗口大小。可以是一个数字（表示K*K的窗口），也可以是一个元组（kh*kw）
+- `output_size` - 输出图像的尺寸。可以使用一个`tuple`指定(oH,oW)，也可以使用一个数字oH指定一个oH*oH的输出。
+- `output_ratio` – 将输入图像的大小的百分比指定为输出图片的大小，使用一个范围在(0,1)之间的数字指定   
+- `return_indices` - 默认值`False`，如果设置为`True`，会返回输出的索引，索引对  `nn.MaxUnpool2d`有用。
+
+**Example：**
+```python
+>>> # pool of square window of size=3, and target output size 13x12
+>>> m = nn.FractionalMaxPool2d(3, output_size=(13, 12))
+>>> # pool of square window and target output size being half of input image size
+>>> m = nn.FractionalMaxPool2d(3, output_ratio=(0.5, 0.5))
+>>> input = autograd.Variable(torch.randn(20, 16, 50, 32))
+>>> output = m(input)
+```
+
+### class torch.nn.LPPool2d(norm\_type, kernel\_size, stride=None, ceil\_mode=False)
+对输入信号提供2维的幂平均池化操作。
+输出的计算方式：$f(x)=pow(sum(X,p),1/p)$  
+
+ - 当p=无限大时，等价于最大池化操作
+ - 当p=1时，等价于平均池化操作
+
+参数`kernel_size`, `stride`的数据类型：
+
+ - `int`，池化窗口的宽和高相等
+ - `tuple`数组（两个数字的），一个元素是池化窗口的高，另一个是宽
+
+
+**参数**
+
+ - `kernel_size`: 池化窗口的大小
+ - `stride`：池化窗口移动的步长。kernel\_size是默认值
+ - `ceil_mode`: 当`ceil_mode=True`，将使用向下取整代替向上取整
+
+**shape**
+
+ - 输入：$(N,C,H_{in},W_{in})$  
+ - 输出：$(N,C,H_{out},W_{out})$  
+$H_{out} = floor((H_{in}+2*padding[0]-dilation[0]*(kernel\_size[0]-1)-1)/stride[0]+1)$  
+$W_{out} = floor((W_{in}+2*padding[1]-dilation[1]*(kernel\_size[1]-1)-1)/stride[1]+1)$
+
+**Example:**
+```python
+>>> # power-2 pool of square window of size=3, stride=2
+>>> m = nn.LPPool2d(2, 3, stride=2)
+>>> # pool of non-square window of power 1.2
+>>> m = nn.LPPool2d(1.2, (3, 2), stride=(2, 1))
+>>> input = autograd.Variable(torch.randn(20, 16, 50, 32))
+>>> output = m(input)
+```
+
+### class torch.nn.AdaptiveMaxPool1d(output\_size, return\_indices=False)
+对输入信号，提供1维的自适应最大池化操作
+对于任何输入大小的输入，可以将输出尺寸指定为H，但是输入和输出特征的数目不会变化。
+
+**参数：**
+
+ - `output_size`: 输出信号的尺寸
+ - `return\_indices`: 如果设置为`True`，会返回输出的索引。对  `nn.MaxUnpool1d`有用，默认值是`False`
+
+**Example：**
+```python
+>>> # target output size of 5
+>>> m = nn.AdaptiveMaxPool1d(5)
+>>> input = autograd.Variable(torch.randn(1, 64, 8))
+>>> output = m(input)
+```
+### class torch.nn.AdaptiveMaxPool2d(output\_size, return\_indices=False)
+对输入信号，提供2维的自适应最大池化操作
+对于任何输入大小的输入，可以将输出尺寸指定为H*W，但是输入和输出特征的数目不会变化。
+
+**参数：**
+
+ - `output_size`: 输出信号的尺寸,可以用（H,W）表示H*W的输出，也可以使用耽搁数字H表示H*H大小的输出
+ - `return_indices`: 如果设置为`True`，会返回输出的索引。对  `nn.MaxUnpool2d`有用，默认值是`False`
+
+**Example：**
+```python
+>>> # target output size of 5x7
+>>> m = nn.AdaptiveMaxPool2d((5,7))
+>>> input = autograd.Variable(torch.randn(1, 64, 8, 9))
+>>> # target output size of 7x7 (square)
+>>> m = nn.AdaptiveMaxPool2d(7)
+>>> input = autograd.Variable(torch.randn(1, 64, 10, 9))
+>>> output = m(input)
+```
+
+### class torch.nn.AdaptiveAvgPool1d(output\_size)
+对输入信号，提供1维的自适应平均池化操作
+对于任何输入大小的输入，可以将输出尺寸指定为H*W，但是输入和输出特征的数目不会变化。
+
+**参数：**
+
+ - `output_size`: 输出信号的尺寸  
+
+**Example：**
+```python
+>>> # target output size of 5
+>>> m = nn.AdaptiveAvgPool1d(5)
+>>> input = autograd.Variable(torch.randn(1, 64, 8))
+>>> output = m(input)
+```
+
+### class torch.nn.AdaptiveAvgPool2d(output\_size)
+对输入信号，提供2维的自适应平均池化操作
+对于任何输入大小的输入，可以将输出尺寸指定为H*W，但是输入和输出特征的数目不会变化。
+
+**参数：**
+
+ - `output_size`: 输出信号的尺寸,可以用（H,W）表示H*W的输出，也可以使用耽搁数字H表示H*H大小的输出
+
+**Example：**
+```python
+>>> # target output size of 5x7
+>>> m = nn.AdaptiveAvgPool2d((5,7))
+>>> input = autograd.Variable(torch.randn(1, 64, 8, 9))
+>>> # target output size of 7x7 (square)
+>>> m = nn.AdaptiveAvgPool2d(7)
+>>> input = autograd.Variable(torch.randn(1, 64, 10, 9))
+>>> output = m(input)
+```
 
 ## Non-Linear Activations [<font size=2>[source]</font>](http://pytorch.org/docs/nn.html#non-linear-activations)
 
