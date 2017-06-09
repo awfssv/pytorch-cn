@@ -388,8 +388,8 @@ class MyModule(nn.Module):
 
 ## 卷积层
 ### class torch.nn.Conv1d(in\_channels, out\_channels, kernel\_size, stride=1, padding=0, dilation=1, groups=1, bias=True)###
-一维卷积层，输入的尺度是($N, C_{in},L$)，输出尺度（$ N,C_{out},L_{out}$）的计算方式：  
-$out(N_i, C_{out_j})=bias(C _{out_j})+\sum^{C_{in}-1}_{k=0}weight(C_{out_j},k)\bigotimes input(N_i,k)$
+一维卷积层，输入的尺度是($ N $, $C_{in}$,$L$)，输出尺度（$ N,C_{out},L_{out} $）的计算方式：  
+$$ out(N_i, C_{out_j})=bias(C_{out_j})+\sum^{C_{in}-1}_{k=0}weight(C_{out_j},k)\bigotimes input(N_i,k)$$
 
 **说明**   
 
@@ -412,7 +412,7 @@ $out(N_i, C_{out_j})=bias(C _{out_j})+\sum^{C_{in}-1}_{k=0}weight(C_{out_j},k)\b
 - `bias` (`bool`, optional) - 如果`bias`=`True`，添加偏置
 
 **shape:**  
-`input`: $(N,C_{in},L_{in})$    
+`input`: $ (N,C_{in},L_{in}) $    
 `output`: $(N,C_{out},L_{out})$   
 $L_{out}=floor((L_{in}+2*padding-dilation*(kernerl\_size-1)-1)/stride+1)$
 
