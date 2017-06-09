@@ -28,7 +28,7 @@ PyTorch是使用GPU和CPU优化的深度学习张量库。
 - [torchvision](torchvision/torchvision.md)
 - [torchvision.datasets](torchvision/torchvision-datasets.md)
 - [torchvision.models](torchvision/torchvision-models.md)
-- [torchvision.transforms](torchvision/torchvision-transforms.md)
+- [torchvision.transforms](torchvision/torchvision-transform.md)
 - [torchvision.utils](torchvision/torchvision-utils.md)
 ##致谢
 - [致谢](acknowledgement.md)
