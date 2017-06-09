@@ -14,7 +14,7 @@
 >
 >CUDA API要求导出到其他进程的分配，只要它们被使用就要一直保持有效。您应该小心，确保您共享的CUDA张量只要有必要就不要超出范围。这不是共享模型参数的问题，但传递其他类型的数据应该小心。注意，此限制不适用于共享CPU内存。
 
-参考：[使用 nn.DataParallel 替代 multiprocessing](notes/multiprocessing.md)
+参考：[使用 nn.DataParallel 替代 multiprocessing](cuda.md)
 
 ## 最佳实践和提示
 ### 避免和抵制死锁
