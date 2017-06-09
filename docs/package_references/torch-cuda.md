@@ -3,7 +3,7 @@
 
 它是懒惰的初始化，所以你可以随时导入它，并使用`is_available()`来确定系统是否支持CUDA。
 
-[CUDA语义](notes/cuda.md)中有关于使用CUDA的更多细节。
+[CUDA语义](../notes/cuda.md)中有关于使用CUDA的更多细节。
 
 ```python
 torch.cuda.current_blas_handle()

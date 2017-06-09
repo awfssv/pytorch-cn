@@ -3,7 +3,9 @@
 torch.utils.ffi.create_extension(name, headers, sources, verbose=True, with_cuda=False, package=False, relative_to='.', **kwargs)
 ```
 创建并配置一个cffi.FFI对象,用于PyTorch的扩展。
+
 **参数：**
+
 - **name** (*str*) – 包名。可以是嵌套模块，例如 `.ext.my_lib`。
 - **headers** (*str* or List[*str*]) – 只包含导出函数的头文件列表
 - **sources** (List[*str*]) – 用于编译的sources列表

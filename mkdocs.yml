@@ -1,33 +1,34 @@
 site_name: PyTorch中文文档
 pages:
-- [index.md, 主页]
-- [notes/autograd.md, '说明', '自动求导机制']
-- [notes/cuda.md, '说明', 'CUDA语义']
-- [notes/extending.md, '说明', '扩展PyTorch']
-- [notes/multiprocessing.md, '说明', '多进程最佳实践']
-- [notes/serialization.md, '说明', '序列化语义']
-
-- [package_references/torch.md, 'PACKAGE参考', 'torch']
-- [package_references/Tensor.md, 'PACKAGE参考', 'torch.Tensor']
-- [package_references/Storage.md, 'PACKAGE参考', 'torch.Storage']
-- [package_references/torch-nn.md, 'PACKAGE参考', 'torch.nn']
-- [package_references/functional.md, 'PACKAGE参考', 'torch.nn.functional']
-- [package_references/torch-autograd.md, 'PACKAGE参考', 'torch.autograd']
-- [package_references/torch-optim.md, 'PACKAGE参考', 'torch.optim']
-- [package_references/nn_init.md, 'PACKAGE参考', 'torch.nn.init']
-- [package_references/torch-multiprocessing.md, 'PACKAGE参考', 'torch.multiprocessing']
-- [package_references/legacy.md, 'PACKAGE参考', 'torch.legacy']
-- [package_references/torch-cuda.md, 'PACKAGE参考', 'torch.cuda']
-- [package_references/ffi.md, 'PACKAGE参考', 'torch.utils.ffi']
-- [package_references/data.md, 'PACKAGE参考', 'torch.utils.data']
-- [package_references/model_zoo.md, 'PACKAGE参考', 'torch.utils.model_zoo']
-
-- [torchvision/torchvision.md, 'TORCHVISION参考', 'torchvision']
-- [torchvision/torchvision-datasets.md, 'TORCHVISION参考', 'torchvision.datasets']
-- [torchvision/torchvision-models.md, 'TORCHVISION参考', 'torchvision.models']
-- [torchvision/torchvision-transform.md, 'TORCHVISION参考', 'torchvision.transforms']
-- [torchvision/torchvision-utils.md, 'TORCHVISION参考', 'torchvision.utils']
-- [acknowledgement.md, '致谢']
+- 主页: index.md
+- 说明:
+  - 自动求导机制: notes/autograd.md
+  - CUDA语义: notes/cuda.md
+  - 扩展PyTorch: notes/extending.md
+  - 多进程最佳实践: notes/multiprocessing.md
+  - 序列化语义: notes/serialization.md
+- PACKAGE参考:
+  - torch: package_references/torch.md
+  - torch.Tensor: package_references/Tensor.md
+  - torch.Storage: package_references/Storage.md
+  - torch.nn: package_references/torch-nn.md
+  - torch.nn.functional: package_references/functional.md
+  - torch.autograd: package_references/torch-autograd.md
+  - torch.optim: package_references/torch-optim.md
+  - torch.nn.init: package_references/nn_init.md
+  - torch.multiprocessing: package_references/torch-multiprocessing.md
+  - torch.legacy: package_references/legacy.md
+  - torch.cuda: package_references/torch-cuda.md
+  - torch.utils.ffi: package_references/ffi.md
+  - torch.utils.data: package_references/data.md
+  - torch.utils.model_zoo: package_references/model_zoo.md
+- TORCHVISION参考:
+  - torchvision: torchvision/torchvision.md
+  - torchvision.datasets: torchvision/torchvision-datasets.md
+  - torchvision.models: torchvision/torchvision-models.md
+  - torchvision.transforms: torchvision/torchvision-transform.md
+  - torchvision.utils: torchvision/torchvision-utils.md
+- 致谢: acknowledgement.md
 
 theme: readthedocs
 
