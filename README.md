@@ -9,17 +9,18 @@
 如果你在使用pytorch和pytorch-cn的过程中有任何问题，欢迎在issue中讨论，可能你的问题也是别人的问题。
 
 ## 翻译进度
-未勾选的是未完成的，粗体代表已认领正在进行，其他的是未认领的（大家赶紧认领吧～）
+现在正在进行审阅任务（大家赶紧认领吧～）
+第一个名字代表翻译人，第二个代表审阅人
 ### Notes
-- [x] Autograd mechanics (*ycszen*)
+- [x] Autograd mechanics (*ycszen*)(DL-ljw)
 - [x] CUDA semantics (*ycszen*)
 - [x] Extending PyTorch (*KeithYin*)
 - [x] Multiprocessing best practices (*ycszen*)
 - [x] Serialization semantics (*ycszen*)
 
 ### Package Reference
-- [x] torch(*koshinryuu*)
-- [x] torch.Tensor(*weigp*)
+- [x] torch(*koshinryuu*)(飞彦)
+- [x] torch.Tensor(*weigp*)(飞彦)
 - [x] torch.Storage(*kophy*)
 - [ ] **torch.nn**
   - [x] Parameters(*KeithYin*)
@@ -28,28 +29,28 @@
   - [x] Pooling Layers(*yichuan9527*)
   - [x] Non-linear Activations(*swordspoet*)
   - [x] Normalization layers(*XavierLin*)
-  - [x] Recurrent layers(*KeithYin*)
-  - [x] Linear layers
-  - [x] Dropout layers
-  - [x] Sparse layers
+  - [x] Recurrent layers(*KeithYin*)(Mosout)
+  - [x] Linear layers( )(Mosout)
+  - [x] Dropout layers( )(Mosout)
+  - [x] Sparse layers(Mosout)
   - [x] Distance functions
-  - [x] Loss functions(*KeithYin*)
+  - [x] Loss functions(*KeithYin*)(DL-ljw)
   - [x] Vision layers(*KeithYin*)
   - [x] Multi-GPU layers(*KeithYin*)
   - [x] Utilities(*KeithYin*)
 - [x] torch.nn.functional
-  - [x] Convolution functions(*ycszen*)
-  - [x] Pooling functions(*ycszen*)
+  - [x] Convolution functions(*ycszen*)(铁血丹心)
+  - [x] Pooling functions(*ycszen*)(铁血丹心)
   - [x] Non-linear activations functions(*ycszen*)
   - [x] Normalization functions(*ycszen*)
   - [x] Linear functions(*dyl745001196*)
   - [x] Dropout functions(*dyl745001196*)
   - [x] Distance functions(*dyl745001196*)
-  - [x] Loss functions(*tfygg*)
+  - [x] Loss functions(*tfygg*)(DL-ljw)
   - [x] Vision functions(*KeithYin*)
-- [x] torch.nn.init(*kophy*)
-- [x] torch.optim(*ZijunDeng*)
-- [x] torch.autograd(*KeithYin*)
+- [x] torch.nn.init(*kophy*)(luc)
+- [x] torch.optim(*ZijunDeng*)(祁杰)
+- [x] torch.autograd(*KeithYin*)(祁杰)
 - [x] torch.multiprocessing(*songbo.han*)
 - [x] torch.legacy(*ycszen*)
 - [x] torch.cuda(*ycszen*)
@@ -59,7 +60,7 @@
 
 ### torchvision Reference
 - [x] torchvision (*KeithYin*)
-- [x] torchvision.datasets (*KeithYin*)
+- [x] torchvision.datasets (*KeithYin*)(loop)
 - [x] torchvision.models (*KeithYin*)
-- [x] torchvision.transforms (*KeithYin*)
+- [x] torchvision.transforms (*KeithYin*)(loop)
 - [x] torchvision.utils (*KeithYin*)
