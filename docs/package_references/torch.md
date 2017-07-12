@@ -1156,7 +1156,7 @@ torch.add(input, value=1, other, out=None)
 ```python 
 torch.addcdiv(tensor, value=1, tensor1, tensor2, out=None) → Tensor
 ```
-对`tensor2`对`tensor1`逐元素相除，然后乘以标量值`value` 并加到`tensor`。
+用`tensor2`对`tensor1`逐元素相除，然后乘以标量值`value` 并加到`tensor`。
 
 张量的形状不需要匹配，但元素数量必须一致。
 
