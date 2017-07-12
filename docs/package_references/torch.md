@@ -1081,7 +1081,7 @@ torch.add(input, value, out=None)
 ```
 对输入张量`input`逐元素加上标量值`value`，并返回结果到一个新的张量`out`，即 \\( out = tensor + value \\)。
 
-如果输入`input`是FloatTensor or DoubleTensor类型，则`value` 必须为实数，否则须为整数。
+如果输入`input`是FloatTensor or DoubleTensor类型，则`value` 必须为实数，否则须为整数。【译注：似乎并非如此，无关输入类型，`value`取整数、实数皆可。】
 
 - input (Tensor) – 输入张量
 - value (Number) – 添加到输入每个元素的数
@@ -1115,7 +1115,7 @@ torch.add(input, value=1, other, out=None)
 
 **注意** :当两个张量形状不匹配时，输入张量的形状会作为输出张量的尺寸。 
  
-如果`other`是FloatTensor or DoubleTensor类型，则`value` 必须为实数，否则须为整数。
+如果`other`是FloatTensor or DoubleTensor类型，则`value` 必须为实数，否则须为整数。【译注：似乎并非如此，无关输入类型，`value`取整数、实数皆可。】
 
 
 参数:
@@ -1344,7 +1344,7 @@ y_i = | x_i, if min <= x_i <= max
       | max, if x_i > max
 ```
 
-如果输入是FloatTensor or DoubleTensor类型，则参数`min` `max` 必须为实数，否则须为整数。【译注：似乎并非如此，无关输入类型，min， max取整数、实数皆可。】
+如果输入是FloatTensor or DoubleTensor类型，则参数`min` `max` 必须为实数，否则须为整数。【译注：似乎并非如此，无关输入类型，`min`， `max`取整数、实数皆可。】
 
 参数：
 
@@ -1377,7 +1377,7 @@ torch.clamp(input, *, min, out=None) → Tensor
 ```
 将输入`input`张量每个元素的限制到不小于`min` ，并返回结果到一个新张量。
 
-如果输入是FloatTensor or DoubleTensor类型，则参数 `min` 必须为实数，否则须为整数。【译注：似乎并非如此，无关输入类型，min取整数、实数皆可。】
+如果输入是FloatTensor or DoubleTensor类型，则参数 `min` 必须为实数，否则须为整数。【译注：似乎并非如此，无关输入类型，`min`取整数、实数皆可。】
 
 参数：
 
@@ -1411,7 +1411,7 @@ torch.clamp(input, *, max, out=None) → Tensor
 ```
 将输入`input`张量每个元素的限制到不大于`max` ，并返回结果到一个新张量。
 
-如果输入是FloatTensor or DoubleTensor类型，则参数 `max` 必须为实数，否则须为整数。【译注：似乎并非如此，无关输入类型，max取整数、实数皆可。】
+如果输入是FloatTensor or DoubleTensor类型，则参数 `max` 必须为实数，否则须为整数。【译注：似乎并非如此，无关输入类型，`max`取整数、实数皆可。】
 
 参数：
 
@@ -1506,7 +1506,7 @@ torch.div(input, value, out=None)
 将`input`逐元素除以标量值`value`，并返回结果到输出张量`out`。
 即 \\( out=tensor/value \\)
 
-如果输入是FloatTensor or DoubleTensor类型，则参数 `value` 必须为实数，否则须为整数。
+如果输入是FloatTensor or DoubleTensor类型，则参数 `value` 必须为实数，否则须为整数。【译注：似乎并非如此，无关输入类型，`value`取整数、实数皆可。】
 
 参数：
 
@@ -1788,7 +1788,7 @@ torch.mul(input, value, out=None)
 用标量值`value`乘以输入`input`的每个元素，并返回一个新的结果张量。
 \\( out=tensor ∗ value    \\)
 
-如果输入是FloatTensor or DoubleTensor类型，则`value` 必须为实数，否则须为整数。
+如果输入是FloatTensor or DoubleTensor类型，则`value` 必须为实数，否则须为整数。【译注：似乎并非如此，无关输入类型，`value`取整数、实数皆可。】
 
 参数：
 
