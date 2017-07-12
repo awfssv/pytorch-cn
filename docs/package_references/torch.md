@@ -1344,7 +1344,7 @@ y_i = | x_i, if min <= x_i <= max
       | max, if x_i > max
 ```
 
-如果输入是FloatTensor or DoubleTensor类型，则参数`min` `max` 必须为实数，否则须为整数。【似乎并非如此，无关输入类型，min， max取整数、实数皆可。】
+如果输入是FloatTensor or DoubleTensor类型，则参数`min` `max` 必须为实数，否则须为整数。【译注：似乎并非如此，无关输入类型，min， max取整数、实数皆可。】
 
 参数：
 
@@ -1377,7 +1377,7 @@ torch.clamp(input, *, min, out=None) → Tensor
 ```
 将输入`input`张量每个元素的限制到不小于`min` ，并返回结果到一个新张量。
 
-如果输入是FloatTensor or DoubleTensor类型，则参数 `min` 必须为实数，否则须为整数。【似乎并非如此，无关输入类型，min取整数、实数皆可。】
+如果输入是FloatTensor or DoubleTensor类型，则参数 `min` 必须为实数，否则须为整数。【译注：似乎并非如此，无关输入类型，min取整数、实数皆可。】
 
 参数：
 
@@ -1411,7 +1411,7 @@ torch.clamp(input, *, max, out=None) → Tensor
 ```
 将输入`input`张量每个元素的限制到不大于`max` ，并返回结果到一个新张量。
 
-如果输入是FloatTensor or DoubleTensor类型，则参数 `max` 必须为实数，否则须为整数。【似乎并非如此，无关输入类型，max取整数、实数皆可。】
+如果输入是FloatTensor or DoubleTensor类型，则参数 `max` 必须为实数，否则须为整数。【译注：似乎并非如此，无关输入类型，max取整数、实数皆可。】
 
 参数：
 
